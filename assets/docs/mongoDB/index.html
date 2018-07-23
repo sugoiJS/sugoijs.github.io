@@ -60,30 +60,35 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="-sugoi-socket">@Sugoi\socket</h1>
-				<p><img src="../assets/logo_inverse.png" alt="Sugoi logo"></p>
+				<h1 id="-sugoi-mongodb">@Sugoi\mongoDB</h1>
+				<p><img src="https://www.sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
 				<p>Sugoi is a minimal modular framework,</p>
 				<p>which gives you the ability to use only what you need, fast.</p>
 				<p>As all of the &quot;Sugoi&quot; modules, this module is stand alone and can act without other Sugoi modules.</p>
 				<p>Sugoi mongoDB package provide ORM solution for mongoDB.</p>
-				<p>This package relays on the Sugoi core ORM infrastructure.</p>
+				<p>This package relays on the Sugoi core ORM infrastructure using the ConnectableModel abstract class.</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/mongoDB</p>
 				</blockquote>
 				<h3 id="bootstrapping">Bootstrapping</h3>
+				<p>Bootstrapping done by one line only:</p>
+				<blockquote>
+					<p>MongoModel.setConnection(configuration:IConnectionConfig,connectionName:string = &quot;default)</p>
+				</blockquote>
+				<p>The connectionName is used for multiple connection</p>
+				<p>Example:</p>
 				<pre><code><span class="hljs-class">import </span>{MongoModel} from <span class="hljs-string">"@sugoi/mongodb"</span>;
 
-MongoModel.setConfig({
+MongoModel.setConnection({
 <span class="hljs-symbol">                        port:</span> <span class="hljs-number">27017</span>,
 <span class="hljs-symbol">                        protocol:</span> <span class="hljs-string">"mongodb://"</span>,
 <span class="hljs-symbol">                        hostName:</span> <span class="hljs-string">"my-mongo.services.com"</span>,
 <span class="hljs-symbol">                        db:</span> <span class="hljs-string">"myAuthDB"</span>, <span class="hljs-comment">//authorization DB</span>
 <span class="hljs-symbol">                        user:</span> <span class="hljs-string">"dbUser"</span>,
 <span class="hljs-symbol">                        password:</span> <span class="hljs-string">"dbPassword"</span>
-                      });
-MongoModel.connect(<span class="hljs-string">"myDataDB"</span>);
+                      }, <span class="hljs-string">"adminDB"</span>);
 </code></pre><h3 id="create-model">Create Model</h3>
 				<p>For creating a model all you need is to extend the MongoModel class and set your properties</p>
 				<p>just like that:</p>
@@ -107,9 +112,23 @@ MongoModel.connect(<span class="hljs-string">"myDataDB"</span>);
         <span class="hljs-keyword">super</span>();
         <span class="hljs-keyword">this</span>.userId = userId;
         <span class="hljs-keyword">this</span>.body = body;
-        collectionName = <span class="hljs-string">"my-app-message"</span>
+        <span class="hljs-keyword">this</span>.collectionName = <span class="hljs-string">"my-app-message"</span>;
     }
 }
+</code></pre><h5 id="using-connections">Using connections</h5>
+				<p>For using different connection for each model all you need to do</p>
+				<p>is override the connnectionName with your connection name
+					export class Message extends MongoModel {
+					public userId:string;
+				public body:string;</p>
+				<pre><code>    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(userId:<span class="hljs-keyword">string</span>,body:<span class="hljs-keyword">string</span>)</span><span class="hljs-comment">{
+        super();
+        this.userId = userId;
+        this.body = body;
+        this.collectionName = "my-app-message";
+        this.connectionName = "adminDB";
+    }</span>
+}</span>
 </code></pre><h3 id="model-methods">Model methods</h3>
 				<p>The model as few main methods:</p>
 				<h5 id="query">Query</h5>
@@ -137,16 +156,13 @@ update(options?: ReplaceOneOptions): Observable<span class="hljs-tag">&lt;<span 
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/mongoconfig.html" class="tsd-kind-icon">Mongo<wbr>Config</a>
+						<a href="classes/mongoconnection.html" class="tsd-kind-icon">Mongo<wbr>Connection</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/mongomodel.html" class="tsd-kind-icon">Mongo<wbr>Model</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/sugoimongoerror.html" class="tsd-kind-icon">Sugoi<wbr>Mongo<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/imongoconfig.html" class="tsd-kind-icon">IMongo<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">Exceptions</a>

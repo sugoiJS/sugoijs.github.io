@@ -87,6 +87,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="httpserver.html#listen" class="tsd-kind-icon">listen</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="httpserver.html#seterrorhandlers" class="tsd-kind-icon">set<wbr>Error<wbr>Handlers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="httpserver.html#setmiddlewares" class="tsd-kind-icon">set<wbr>Middlewares</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="httpserver.html#setstatic" class="tsd-kind-icon">set<wbr>Static</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpserver.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="httpserver.html#init" class="tsd-kind-icon">init</a></li>
 							</ul>
@@ -106,7 +107,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L27">classes/http-server.class.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L28">classes/http-server.class.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -131,7 +132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L126">classes/http-server.class.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L141">classes/http-server.class.ts:141</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -163,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L152">classes/http-server.class.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L167">classes/http-server.class.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L114">classes/http-server.class.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L129">classes/http-server.class.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L103">classes/http-server.class.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L104">classes/http-server.class.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,6 +242,43 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setstatic" class="tsd-anchor"></a>
+					<h3>set<wbr>Static</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Static<span class="tsd-signature-symbol">(</span>pathToStatic<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, route<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L115">classes/http-server.class.ts:115</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>set static file handler</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pathToStatic: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>path to your static files</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> route: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>path to use as route - ex. app.use(path,()=&gt;void)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="getinstance" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Instance</h3>
@@ -251,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L89">classes/http-server.class.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L90">classes/http-server.class.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,7 +320,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L67">classes/http-server.class.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/http-server.class.ts#L68">classes/http-server.class.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,6 +403,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="httpserver.html#setmiddlewares" class="tsd-kind-icon">set<wbr>Middlewares</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="httpserver.html#setstatic" class="tsd-kind-icon">set<wbr>Static</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="httpserver.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a>
 							</li>
@@ -375,6 +416,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="sugoiservererror.html" class="tsd-kind-icon">Sugoi<wbr>Server<wbr>Error</a>
 					</li>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IBeforeValidate | @sugoi/core</title>
+	<title>ResponseMessage | @sugoi/server</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@sugoi/core</a>
+					<a href="../index.html" class="title">@sugoi/server</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ibeforevalidate.html">IBeforeValidate</a>
+					<a href="responsemessage.html">ResponseMessage</a>
 				</li>
 			</ul>
-			<h1>Interface IBeforeValidate</h1>
+			<h1>Class ResponseMessage</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +66,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IBeforeValidate</span>
+						<span class="target">ResponseMessage</span>
 					</li>
 				</ul>
 			</section>
@@ -75,40 +75,85 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="responsemessage.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ibeforevalidate.html#sugbeforevalidate" class="tsd-kind-icon">sug<wbr>Before<wbr>Validate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="responsemessage.html#data" class="tsd-kind-icon">data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="responsemessage.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="responsemessage.html#timestamp" class="tsd-kind-icon">timestamp</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Response<wbr>Message<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, timestamp<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="responsemessage.html" class="tsd-signature-type">ResponseMessage</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/response-message.ts#L1">classes/response-message.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> data: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> timestamp: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> =&nbsp;new Date()</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="responsemessage.html" class="tsd-signature-type">ResponseMessage</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="sugbeforevalidate" class="tsd-anchor"></a>
-					<h3>sug<wbr>Before<wbr>Validate</h3>
-					<div class="tsd-signature tsd-kind-icon">sug<wbr>Before<wbr>Validate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="data" class="tsd-anchor"></a>
+					<h3>data</h3>
+					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/interfaces/before-validate.interface.ts#L2">interfaces/before-validate.interface.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/response-message.ts#L3">classes/response-message.ts:3</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/response-message.ts#L2">classes/response-message.ts:2</a></li>
 						</ul>
-					</div>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="timestamp" class="tsd-anchor"></a>
+					<h3>timestamp</h3>
+					<div class="tsd-signature tsd-kind-icon">timestamp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/classes/response-message.ts#L4">classes/response-message.ts:4</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -122,71 +167,53 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a>
+					<li class=" tsd-kind-class">
+						<a href="authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/connection.html" class="tsd-kind-icon">Connection</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/containerservice.html" class="tsd-kind-icon">Container<wbr>Service</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/modelexception.html" class="tsd-kind-icon">Model<wbr>Exception</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/sugoierror.html" class="tsd-kind-icon">Sugoi<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iaftersave.html" class="tsd-kind-icon">IAfter<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iafterupdate.html" class="tsd-kind-icon">IAfter<wbr>Update</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ibeforesave.html" class="tsd-kind-icon">IBefore<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ibeforeupdate.html" class="tsd-kind-icon">IBefore<wbr>Update</a>
+						<a href="httpserver.html" class="tsd-kind-icon">Http<wbr>Server</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ibeforevalidate.html" class="tsd-kind-icon">IBefore<wbr>Validate</a>
+					<li class="current tsd-kind-class">
+						<a href="responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ibeforevalidate.html#sugbeforevalidate" class="tsd-kind-icon">sug<wbr>Before<wbr>Validate</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="responsemessage.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="responsemessage.html#data" class="tsd-kind-icon">data</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="responsemessage.html#message" class="tsd-kind-icon">message</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="responsemessage.html#timestamp" class="tsd-kind-icon">timestamp</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
+					<li class=" tsd-kind-class">
+						<a href="sugoiservererror.html" class="tsd-kind-icon">Sugoi<wbr>Server<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="iexceptionconstant.html" class="tsd-kind-icon">IException<wbr>Constant</a>
+						<a href="../interfaces/imodulemetadata.html" class="tsd-kind-icon">IModule<wbr>Metadata</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ivalidate.html" class="tsd-kind-icon">IValidate</a>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="../interfaces/moduleitem.html" class="tsd-kind-icon">Module<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../globals.html#iexpresscallback" class="tsd-kind-icon">IExpress<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#exceptions" class="tsd-kind-icon">Exceptions</a>
+						<a href="../globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
 					</li>
 				</ul>
 			</nav>
