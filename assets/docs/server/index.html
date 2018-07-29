@@ -117,6 +117,10 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
 <span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
 </code></pre><h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
+				<p>For setting static file serving use</p>
+				<blockquote>
+					<p>  setStatic(pathToStatic:string,route?:string)</p>
+				</blockquote>
 				<p>For setting middlewares  we will use</p>
 				<blockquote>
 					<p>  setMiddlewares(...(app)=&gt;void)</p>
@@ -125,7 +129,10 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 				<blockquote>
 					<p>  setErrorHandlers((app) =&gt; void)</p>
 				</blockquote>
-				<pre><code>(&lt;HttpServer&gt;server).setMiddlewares((<span class="hljs-keyword">app</span>) =&gt; {
+				<pre><code>(&lt;HttpServer&gt;server)
+    .setStatic(<span class="hljs-string">"assets/admin"</span>,<span class="hljs-string">"/admin"</span>)
+    .setStatic(<span class="hljs-string">"assets/main"</span>)
+    .setMiddlewares((<span class="hljs-keyword">app</span>) =&gt; {
         <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(bodyParser.json());
         <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(compression());
         <span class="hljs-keyword">if</span> (DEVELOPMENT) {
