@@ -72,10 +72,10 @@
 				</blockquote>
 				<h2 id="orm">ORM</h2>
 				<p>Sugoi core module contain ready to extend ORM Models of two types:</p>
-				<h5 id="1-connectable-model">1. Connectable Model</h5>
+				<h3 id="1-connectable-model">1. Connectable Model</h3>
 				<p>Models of this type have direct connection to the storage unit,
-				most common usage for TCP connection</p>
-				<p>Example by @sugoi/mongodb package implementation:</p>
+				most common usage is for TCP connection.</p>
+				<p>Example by the @sugoi/mongodb package implementation:</p>
 				<pre><code><span class="hljs-keyword">import</span> {Connection,ConnectableModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/core"</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MongoModel <span class="hljs-keyword">extends</span> ConnectableModel{
@@ -96,7 +96,7 @@
                 });
         }
 }
-</code></pre><h5 id="2-restful-model">2. RESTFUL Model</h5>
+</code></pre><h3 id="2-restful-model">2. RESTFUL Model</h3>
 				<p>Models of this type does not have direct connection to the storage unit,
 				communication done by single request which get closed as soon it completed.</p>
 				<p>Common usage is restful requests.</p>
@@ -108,9 +108,9 @@
     }
 
 }
-</code></pre><h4 id="crud-implementation">CRUD Implementation</h4>
+</code></pre><h3 id="crud-implementation">CRUD Implementation</h3>
 				<p>For support CRUD you able to implement your logic under each of the CRUD emitters:</p>
-				<h5 id="1-saveemitter">1. SaveEmitter</h5>
+				<h4 id="1-saveemitter">1. SaveEmitter</h4>
 				<pre><code><span class="hljs-keyword">public</span> saveEmitter(<span class="hljs-keyword">options</span>:<span class="hljs-keyword">any</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'POST'</span>,
@@ -119,7 +119,7 @@
             json: <span class="hljs-keyword">true</span>
         })
 }
-</code></pre><h5 id="2-findemitter">2. FindEmitter</h5>
+</code></pre><h4 id="2-findemitter">2. FindEmitter</h4>
 				<pre><code><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> findEmitter(query: <span class="hljs-keyword">any</span>, <span class="hljs-keyword">options</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'GET'</span>,
@@ -128,7 +128,7 @@
             json: <span class="hljs-keyword">true</span>
         })
 }
-</code></pre><h5 id="3-updateemitter">3. UpdateEmitter</h5>
+</code></pre><h4 id="3-updateemitter">3. UpdateEmitter</h4>
 				<pre><code><span class="hljs-keyword">public</span> updateEmitter(options:<span class="hljs-built_in">any</span> = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'PUT'</span>,
@@ -137,7 +137,7 @@
             json: <span class="hljs-literal">true</span>
         })
 }
-</code></pre><h5 id="4-removeemitter">4. RemoveEmitter</h5>
+</code></pre><h4 id="4-removeemitter">4. RemoveEmitter</h4>
 				<pre><code><span class="hljs-keyword">protected</span> removeEmitter(query = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'DELETE'</span>,
@@ -147,7 +147,7 @@
         })
 }
 </code></pre><h4 id="lifecycle-hooks">Lifecycle Hooks</h4>
-				<p>Sugoi ORM use known lifecycle hooks which can implemented by interfaces:</p>
+				<p>Sugoi ORM use predefined lifecycle hooks which can implemented by interfaces:</p>
 				<ol>
 					<li>IBeforeValidate</li>
 					<li>IValidate</li>
@@ -155,18 +155,18 @@
 					<li>IAfterSave \ IAfterUpdate</li>
 				</ol>
 				<p><img src="https://www.sugoijs.com/assets/lifecycle.png" alt="Sugoi logo"></p>
-				<h4 id="container">Container</h4>
+				<h2 id="container">Container</h2>
 				<p>Sugoi re-export <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">Inversify container class</a>
 				for support singleton injectable services.</p>
 				<p>By using Containers you can achieve solutions for singleton service for request\application liftime.</p>
-				<h4 id="exceptions">Exceptions</h4>
-				<p>Sugoi provides base abstract exception(error) class which can be extend and use for exception check</p>
-				<pre><code><span class="hljs-symbol">SugoiError:</span>{
-<span class="hljs-symbol">    code:</span>number,
-<span class="hljs-symbol">    message:</span>string,
-<span class="hljs-symbol">    data:</span>Array<span class="hljs-params">&lt;any&gt;</span>
+				<h2 id="exceptions">Exceptions</h2>
+				<p>Sugoi provides base abstract exception(error) class which can be extend and use for exception handling</p>
+				<pre><code><span class="hljs-selector-tag">SugoiError</span>:{
+    <span class="hljs-attribute">code</span>:number;
+    <span class="hljs-attribute">message</span>:string;
+    <span class="hljs-attribute">data</span>:Array&lt;any&gt;;
 }
-</code></pre><p>Feel free to extend this class for identify you error by:</p>
+</code></pre><p>Feel free to extend this class for identify your own error by:</p>
 				<pre><code><span class="hljs-keyword">switch</span>(err.constructor.name){
     <span class="hljs-keyword">case</span> <span class="hljs-string">"MySugoiError"</span>:
         <span class="hljs-comment">//handled error</span>
