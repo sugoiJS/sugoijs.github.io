@@ -74,7 +74,7 @@
 				<p>Sugoi core module contain ready to extend ORM Models of two types:</p>
 				<h5 id="1-connectable-model">1. Connectable Model</h5>
 				<p>Models of this type have direct connection to the storage unit,
-				most common usage for DBs connection</p>
+				most common usage for TCP connection</p>
 				<p>Example by @sugoi/mongodb package implementation:</p>
 				<pre><code><span class="hljs-keyword">import</span> {Connection,ConnectableModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/core"</span>;
 
@@ -98,13 +98,13 @@
 }
 </code></pre><h5 id="2-restful-model">2. RESTFUL Model</h5>
 				<p>Models of this type does not have direct connection to the storage unit,
-					communication done by single request which get close as soon it&#39;s completed,
-				Common usage is restful requests.</p>
+				communication done by single request which get closed as soon it completed.</p>
+				<p>Common usage is restful requests.</p>
 				<p>Example:</p>
 				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MicroServiceModel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ModelAbstract</span></span>{
 
     constructor(){
-        <span class="hljs-keyword">super</span>();;
+        <span class="hljs-keyword">super</span>();
     }
 
 }
