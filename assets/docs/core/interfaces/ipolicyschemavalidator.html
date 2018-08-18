@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContainerService | @sugoi/core</title>
+	<title>IPolicySchemaValidator | @sugoi/core</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,22 +52,36 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="containerservice.html">ContainerService</a>
+					<a href="ipolicyschemavalidator.html">IPolicySchemaValidator</a>
 				</li>
 			</ul>
-			<h1>Class ContainerService</h1>
+			<h1>Interface IPolicySchemaValidator&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContainerService</span>
+						<span class="target">IPolicySchemaValidator</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/policyschemavalidator.html" class="tsd-signature-type">PolicySchemaValidator</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -75,90 +89,60 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ipolicyschemavalidator.html#schema" class="tsd-kind-icon">schema</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ipolicyschemavalidator.html#validatevalue" class="tsd-kind-icon">validate<wbr>Value</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="containerservice.html#inject" class="tsd-kind-icon">inject</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#unregister" class="tsd-kind-icon">unregister</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ipolicyschemavalidator.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="schema" class="tsd-anchor"></a>
+					<h3>schema</h3>
+					<div class="tsd-signature tsd-kind-icon">schema<span class="tsd-signature-symbol">:</span> <a href="../globals.html#tcomparableschema" class="tsd-signature-type">TComparableSchema</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/policy-schema-validator.interface.ts#L8">policies/interfaces/policy-schema-validator.interface.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="validatevalue" class="tsd-anchor"></a>
+					<h3>validate<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">validate<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/policy-schema-validator.interface.ts#L7">policies/interfaces/policy-schema-validator.interface.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<a name="inject" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> inject</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">inject&lt;T&gt;<span class="tsd-signature-symbol">(</span>Class<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ivalidationresult.html" class="tsd-signature-type">IValidationResult</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L15">services/container.service.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/policy-schema-validator.interface.ts#L5">policies/interfaces/policy-schema-validator.interface.ts:5</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>Class: <span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="register" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> register</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>repos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="containerrepo.html" class="tsd-signature-type">ContainerRepo</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Container</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L7">services/container.service.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>repos: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="containerrepo.html" class="tsd-signature-type">ContainerRepo</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Container</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="unregister" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> unregister</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">unregister<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L20">services/container.service.ts:20</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>identifier: <span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ivalidationresult.html" class="tsd-signature-type">IValidationResult</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -178,64 +162,64 @@
 						<a href="../enums/comparabletypes.html" class="tsd-kind-icon">Comparable<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="comparable.html" class="tsd-kind-icon">Comparable</a>
+						<a href="../classes/comparable.html" class="tsd-kind-icon">Comparable</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
+						<a href="../classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/containerservice.html" class="tsd-kind-icon">Container<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/policyitem.html" class="tsd-kind-icon">Policy<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="../classes/policyschemavalidator.html" class="tsd-kind-icon">Policy<wbr>Schema<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/stringutils.html" class="tsd-kind-icon">String<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sugoierror.html" class="tsd-kind-icon">Sugoi<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/sugoipolicyerror.html" class="tsd-kind-icon">Sugoi<wbr>Policy<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/validateschemautil.html" class="tsd-kind-icon">Validate<wbr>Schema<wbr>Util</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="icomparablevalue.html" class="tsd-kind-icon">IComparable<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="iexceptionconstant.html" class="tsd-kind-icon">IException<wbr>Constant</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="containerservice.html" class="tsd-kind-icon">Container<wbr>Service</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter">
+						<a href="ipolicyschemavalidator.html" class="tsd-kind-icon">IPolicy<wbr>Schema<wbr>Validator</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="containerservice.html#inject" class="tsd-kind-icon">inject</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ipolicyschemavalidator.html#schema" class="tsd-kind-icon">schema</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#register" class="tsd-kind-icon">register</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ipolicyschemavalidator.html#validatevalue" class="tsd-kind-icon">validate<wbr>Value</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#unregister" class="tsd-kind-icon">unregister</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ipolicyschemavalidator.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="policyitem.html" class="tsd-kind-icon">Policy<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="policyschemavalidator.html" class="tsd-kind-icon">Policy<wbr>Schema<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="stringutils.html" class="tsd-kind-icon">String<wbr>Utils</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sugoierror.html" class="tsd-kind-icon">Sugoi<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sugoipolicyerror.html" class="tsd-kind-icon">Sugoi<wbr>Policy<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="validateschemautil.html" class="tsd-kind-icon">Validate<wbr>Schema<wbr>Util</a>
-					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/icomparablevalue.html" class="tsd-kind-icon">IComparable<wbr>Value</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iexceptionconstant.html" class="tsd-kind-icon">IException<wbr>Constant</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/ipolicyschemavalidator.html" class="tsd-kind-icon">IPolicy<wbr>Schema<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/ivalidationresult.html" class="tsd-kind-icon">IValidation<wbr>Result</a>
+						<a href="ivalidationresult.html" class="tsd-kind-icon">IValidation<wbr>Result</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#comparablevaluetype" class="tsd-kind-icon">Comparable<wbr>Value<wbr>Type</a>

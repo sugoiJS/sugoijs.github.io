@@ -63,110 +63,82 @@
 				<h1 id="-sugoi-core">@Sugoi\core</h1>
 				<p><img src="https://www.sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
-				<p>Sugoi is a minimal modular framework,</p>
+				<p>SugoiJS™ is a minimal modular framework,</p>
 				<p>which gives you the ability to use only what you need, fast.</p>
-				<p>As all of the &quot;Sugoi&quot; modules, this module is stand alone and can act without other Sugoi modules.</p>
+				<p>this is a standalone module that can be functional separately (as all of the SugoiJS™ modules).</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/core</p>
 				</blockquote>
-				<h2 id="orm">ORM</h2>
-				<p>Sugoi core module contain ready to extend ORM Models of two types:</p>
-				<h3 id="1-connectable-model">1. Connectable Model</h3>
-				<p>Models of this type have direct connection to the storage unit,
-				most common usage is for TCP connection.</p>
-				<p>Example by the @sugoi/mongodb package implementation:</p>
-				<pre><code><span class="hljs-keyword">import</span> {Connection,ConnectableModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/core"</span>;
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MongoModel <span class="hljs-keyword">extends</span> ConnectableModel{
-    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> ConnectionType:Connection = MongoConnection;
-
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-        <span class="hljs-keyword">super</span>();
+				<p>On your main application file import ReflectMetaData</p>
+				<h2 id="policies-guards-">Policies (Guards)</h2>
+				<p>SugoiJS™ provides policy which can be use for guarding any function on the server.</p>
+				<p>The Policies use by two simple steps:</p>
+				<h4 id="-policy-policyid-string-">@Policy(policyId?:string)</h4>
+				<p>This decorator register the function as policy validator.</p>
+				<p>This decorated function will be later can be use for guard our functions.</p>
+				<blockquote>
+					<p>policyId?: string - The id which will be use as an alias for calling this function, default is ${class name}.${function name}</p>
+				</blockquote>
+				<h4 id="-usepolicy-policy-tpolicy-string-failedresponsecode-number-400-policymeta-any-">@UsePolicy(policy: TPolicy|string, failedResponseCode: number = 400, ...policyMeta: any[])</h4>
+				<p>This decorator declare the function guarded by policy.</p>
+				<blockquote>
+					<p>policy:TPolicy| string  - For set the ref policy, use the policy Id from previous section nor anonymous function reference.</p>
+				</blockquote>
+				<blockquote>
+					<p>failedResponseCode: number - The code which will be under the exception in case the value does not meet the criterias.</p>
+				</blockquote>
+				<blockquote>
+					<p>policyMeta: any[] - Any further payload data which should pass to the policy.</p>
+				</blockquote>
+				<h3 id="pre-defined-policies-">Pre-defined policies:</h3>
+				<p>@sugoi\core provide pre-defined policy for validating function arguments:</p>
+				<pre><code><span class="hljs-selector-tag">ValidateSchemaPolicy</span>(<span class="hljs-attribute">failedResponseCode</span>: number = <span class="hljs-number">400</span>, ...<span class="hljs-attribute">policyMeta</span>: TValidateSchemaMeta[])
+</code></pre><blockquote>
+					<p>failedResponseCode: number  - The code which will be under the exception in case the value does not meet the criterias.</p>
+				</blockquote>
+				<blockquote>
+					<p>policyMeta: TValidateSchemaMeta - Meta data for validation</p>
+				</blockquote>
+				<pre><code>{
+    schema: {[prop:string]:Comparable|Comparable}, - Comperable schema
+    argIndex?: number, - Function argument index -<span class="hljs-built_in"> default </span>is 0
+    keyInArg?: string  - Key <span class="hljs-keyword">in</span> argument
+}
+</code></pre><p>Example:
+				Schema -</p>
+				<pre><code>{
+    role:{
+        text:string//with regex  /([A-Z])+/i
     }
-
-    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> connectEmitter(connection: MongoConnection): <span class="hljs-built_in">Promise</span>&lt;{ dbInstance: Db, client: MongoClient }&gt; {
-            <span class="hljs-keyword">const</span> connectionConfig = {
-                authSource: connection.authDB
-            };
-
-            <span class="hljs-keyword">return</span> MongoClient.connect(connection.getConnectionString(), connectionConfig)
-                .then(<span class="hljs-function">(<span class="hljs-params">client: MongoClient</span>) =&gt;</span> {
-                    <span class="hljs-keyword">return</span> {client}
-                });
-        }
 }
-</code></pre><h3 id="2-restful-model">2. RESTFUL Model</h3>
-				<p>Models of this type does not have direct connection to the storage unit,
-				communication done by single request which get closed as soon it completed.</p>
-				<p>Common usage is restful requests.</p>
-				<p>Example:</p>
-				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MicroServiceModel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ModelAbstract</span></span>{
-
-    constructor(){
-        <span class="hljs-keyword">super</span>();
-    }
-
-}
-</code></pre><h3 id="crud-implementation">CRUD Implementation</h3>
-				<p>For support CRUD you able to implement your logic under each of the CRUD emitters:</p>
-				<h4 id="1-saveemitter">1. SaveEmitter</h4>
-				<pre><code><span class="hljs-keyword">public</span> saveEmitter(<span class="hljs-keyword">options</span>:<span class="hljs-keyword">any</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
-        <span class="hljs-keyword">return</span> rp({
-            method: <span class="hljs-string">'POST'</span>,
-            uri: <span class="hljs-string">'https://api.example.com/myendpoint'</span>,
-            body:<span class="hljs-keyword">this</span>,
-            json: <span class="hljs-keyword">true</span>
-        })
-}
-</code></pre><h4 id="2-findemitter">2. FindEmitter</h4>
-				<pre><code><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> findEmitter(query: <span class="hljs-keyword">any</span>, <span class="hljs-keyword">options</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
-        <span class="hljs-keyword">return</span> rp({
-            method: <span class="hljs-string">'GET'</span>,
-            uri: <span class="hljs-string">'https://api.example.com/myendpoint'</span>,
-            qs:query,
-            json: <span class="hljs-keyword">true</span>
-        })
-}
-</code></pre><h4 id="3-updateemitter">3. UpdateEmitter</h4>
-				<pre><code><span class="hljs-keyword">public</span> updateEmitter(options:<span class="hljs-built_in">any</span> = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
-        <span class="hljs-keyword">return</span> rp({
-            method: <span class="hljs-string">'PUT'</span>,
-            uri: <span class="hljs-string">`https://api.example.com/myendpoint/<span class="hljs-subst">${this.id}</span>`</span>,
-            body:<span class="hljs-keyword">this</span>,
-            json: <span class="hljs-literal">true</span>
-        })
-}
-</code></pre><h4 id="4-removeemitter">4. RemoveEmitter</h4>
-				<pre><code><span class="hljs-keyword">protected</span> removeEmitter(query = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
-        <span class="hljs-keyword">return</span> rp({
-            method: <span class="hljs-string">'DELETE'</span>,
-            uri: <span class="hljs-string">`https://api.example.com/myendpoint/<span class="hljs-subst">${this.id}</span>`</span>,
-            body: <span class="hljs-keyword">this</span>,
-            json: <span class="hljs-literal">true</span>
-        })
-}
-</code></pre><h4 id="lifecycle-hooks">Lifecycle Hooks</h4>
-				<p>Sugoi ORM use predefined lifecycle hooks which can implemented by interfaces:</p>
-				<ol>
-					<li>IBeforeValidate</li>
-					<li>IValidate</li>
-					<li>IBeforeSave \ IBeforeUpdate</li>
-					<li>IAfterSave \ IAfterUpdate</li>
-				</ol>
-				<p><img src="https://www.sugoijs.com/assets/lifecycle.png" alt="Sugoi logo"></p>
+</code></pre><p>Usage -</p>
+				<pre><code><span class="hljs-variable">@ValidateSchemaPolicy</span>(<span class="hljs-number">400</span>, {
+        <span class="hljs-attribute">schema</span>: {
+            <span class="hljs-string">"role"</span>: Comparable.ofType(
+                {<span class="hljs-attribute">text</span>: Comparable.ofType(ComparableTypes.STRING).setRegex(<span class="hljs-string">"([A-Z])+"</span>, <span class="hljs-string">"i"</span>)}
+            )
+        },
+        <span class="hljs-attribute">argIndex</span>: <span class="hljs-number">0</span>
+    })
+</code></pre><h3 id="build-your-own-policies-">Build your own policies:</h3>
+				<p>Policy can be any function of type TPolicy</p>
+				<blockquote>
+					<p>  TPolicy = (policyData?:{functionArgs?: any[], policyMeta?: any[]})=&gt;(Promise &lt; (true|any) &gt; | (true|any))</p>
+				</blockquote>
+				<p>When boolean <code>true</code> result means valid</p>
 				<h2 id="container">Container</h2>
-				<p>Sugoi re-export <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">Inversify container class</a>
-				for support singleton injectable services.</p>
-				<p>By using Containers you can achieve solutions for singleton service for request\application liftime.</p>
+				<p>SugoiJS™ re-exports <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">Inversify container class</a>
+				for support singleton injectable (autowire) services.</p>
+				<p>By using Containers you can achieve singleton services solutions for request\application liftime.</p>
 				<h2 id="exceptions">Exceptions</h2>
-				<p>Sugoi provides base abstract exception(error) class which can be extend and use for exception handling</p>
+				<p>SugoiJS™ provides base abstract exception(error) class which can be extended and used for exceptions handling</p>
 				<pre><code><span class="hljs-selector-tag">SugoiError</span>:{
     <span class="hljs-attribute">code</span>:number;
     <span class="hljs-attribute">message</span>:string;
     <span class="hljs-attribute">data</span>:Array&lt;any&gt;;
 }
-</code></pre><p>Feel free to extend this class for identify your own error by:</p>
+</code></pre><p>Feel free to extend this class to identify your own error by:</p>
 				<pre><code><span class="hljs-keyword">switch</span>(err.constructor.name){
     <span class="hljs-keyword">case</span> <span class="hljs-string">"MySugoiError"</span>:
         <span class="hljs-comment">//handled error</span>
@@ -195,13 +167,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a>
+						<a href="enums/comparabletypes.html" class="tsd-kind-icon">Comparable<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/connection.html" class="tsd-kind-icon">Connection</a>
+						<a href="classes/comparable.html" class="tsd-kind-icon">Comparable</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
@@ -213,43 +182,58 @@
 						<a href="classes/genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
+						<a href="classes/policyitem.html" class="tsd-kind-icon">Policy<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/policyschemavalidator.html" class="tsd-kind-icon">Policy<wbr>Schema<wbr>Validator</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/stringutils.html" class="tsd-kind-icon">String<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/sugoierror.html" class="tsd-kind-icon">Sugoi<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
+						<a href="classes/sugoipolicyerror.html" class="tsd-kind-icon">Sugoi<wbr>Policy<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/validateschemautil.html" class="tsd-kind-icon">Validate<wbr>Schema<wbr>Util</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/iaftersave.html" class="tsd-kind-icon">IAfter<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/iafterupdate.html" class="tsd-kind-icon">IAfter<wbr>Update</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ibeforesave.html" class="tsd-kind-icon">IBefore<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ibeforeupdate.html" class="tsd-kind-icon">IBefore<wbr>Update</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ibeforevalidate.html" class="tsd-kind-icon">IBefore<wbr>Validate</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
+						<a href="interfaces/icomparablevalue.html" class="tsd-kind-icon">IComparable<wbr>Value</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/iexceptionconstant.html" class="tsd-kind-icon">IException<wbr>Constant</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/ipolicyschemavalidator.html" class="tsd-kind-icon">IPolicy<wbr>Schema<wbr>Validator</a>
+					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a>
+						<a href="interfaces/ivalidationresult.html" class="tsd-kind-icon">IValidation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#comparablevaluetype" class="tsd-kind-icon">Comparable<wbr>Value<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tcomparableschema" class="tsd-kind-icon">TComparable<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tpolicy" class="tsd-kind-icon">TPolicy</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tvalidateschemadata" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tvalidateschemameta" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#policy_meta_key" class="tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#exceptions" class="tsd-kind-icon">Exceptions</a>
+						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
 					</li>
 				</ul>
 			</nav>
