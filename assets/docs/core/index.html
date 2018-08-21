@@ -63,16 +63,15 @@
 				<h1 id="-sugoi-core">@Sugoi\core</h1>
 				<p><img src="https://www.sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
-				<p>SugoiJS™ is a minimal modular framework,</p>
+				<p>SugoiJS is a minimal modular framework,</p>
 				<p>which gives you the ability to use only what you need, fast.</p>
-				<p>this is a standalone module that can be functional separately (as all of the SugoiJS™ modules).</p>
+				<p>this is a standalone module that can be functional separately (as all of the SugoiJS modules).</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/core</p>
 				</blockquote>
-				<p>On your main application file import ReflectMetaData</p>
 				<h2 id="policies-guards-">Policies (Guards)</h2>
-				<p>SugoiJS™ provides policy which can be use for guarding any function on the server.</p>
+				<p>SugoiJS provides policy which can be use for guarding any function on the server.</p>
 				<p>The Policies use by two simple steps:</p>
 				<h4 id="-policy-policyid-string-">@Policy(policyId?:string)</h4>
 				<p>This decorator register the function as policy validator.</p>
@@ -101,7 +100,7 @@
 					<p>policyMeta: TValidateSchemaMeta - Meta data for validation</p>
 				</blockquote>
 				<pre><code>{
-    schema: {[prop:string]:Comparable|Comparable}, - Comperable schema
+    schema: {[prop:string]:ComparableSchema|ComparableSchema}, - Comperable schema
     argIndex?: number, - Function argument index -<span class="hljs-built_in"> default </span>is 0
     keyInArg?: string  - Key <span class="hljs-keyword">in</span> argument
 }
@@ -115,8 +114,8 @@
 </code></pre><p>Usage -</p>
 				<pre><code><span class="hljs-variable">@ValidateSchemaPolicy</span>(<span class="hljs-number">400</span>, {
         <span class="hljs-attribute">schema</span>: {
-            <span class="hljs-string">"role"</span>: Comparable.ofType(
-                {<span class="hljs-attribute">text</span>: Comparable.ofType(ComparableTypes.STRING).setRegex(<span class="hljs-string">"([A-Z])+"</span>, <span class="hljs-string">"i"</span>)}
+            <span class="hljs-string">"role"</span>: ComparableSchema.ofType(
+                {<span class="hljs-attribute">text</span>: ComparableSchema.ofType(SchemaTypes.STRING).setRegex(<span class="hljs-string">"([A-Z])+"</span>, <span class="hljs-string">"i"</span>)}
             )
         },
         <span class="hljs-attribute">argIndex</span>: <span class="hljs-number">0</span>
@@ -124,15 +123,37 @@
 </code></pre><h3 id="build-your-own-policies-">Build your own policies:</h3>
 				<p>Policy can be any function of type TPolicy</p>
 				<blockquote>
-					<p>  TPolicy = (policyData?:{functionArgs?: any[], policyMeta?: any[]})=&gt;(Promise &lt; (true|any) &gt; | (true|any))</p>
+					<p>  TPolicy = (policyData?:{functionArgs: any[], policyMeta: any[]})=&gt;(Promise &lt; (true|any) &gt; | (true|any))</p>
 				</blockquote>
-				<p>When boolean <code>true</code> result means valid</p>
-				<h2 id="container">Container</h2>
-				<p>SugoiJS™ re-exports <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">Inversify container class</a>
+				<p>When result is boolean <code>true</code> means the data is valid, all the other values will be shown on the exception</p>
+				<h3 id="policy-full-example-">Policy full example:</h3>
+				<pre><code><span class="hljs-keyword">class</span> Validators{
+
+    <span class="hljs-meta">@Policy</span>() <span class="hljs-comment">//register this function as policy using the class name and function name, same as use @Policy("Validators.myNumberValidation")</span>
+    <span class="hljs-keyword">static</span> myNumberValidation(policyData:{<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Args</span>: <span class="hljs-title">any</span>[], <span class="hljs-title">policyMeta</span>: </span>{argIndexToValidate:<span class="hljs-built_in">number</span>,maxValue:<span class="hljs-built_in">number</span>}[]}): <span class="hljs-literal">true</span>|<span class="hljs-built_in">any</span>{
+        <span class="hljs-keyword">const</span> myMeta = policyMeta[<span class="hljs-number">0</span>];
+        <span class="hljs-comment">//those are the meta data values which passed to the decorator itself while using @UsePolicy()</span>
+        <span class="hljs-keyword">const</span> argIndexToValidate = myMeta.argIndexToValidate;
+        <span class="hljs-keyword">const</span> maxValue = myMeta.maxValue;
+
+        <span class="hljs-keyword">if</span>(policyData.functionArgs[argIndexToValidate] &lt; maxValue){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">//Is valid, continue to the function/next policy</span>
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">return</span> policyData.functionArgs[argToValidate]; <span class="hljs-comment">//so we will be able to identify the issue on the exception</span>
+        }
+    }
+}
+
+<span class="hljs-meta">@UsePolicy</span>(<span class="hljs-string">"Validators.myNumberValidation"</span>,{argIndexToValidate:<span class="hljs-number">0</span>,maxValue:<span class="hljs-number">5</span>})
+lowerThan5NumberLogger(myNumber){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`number is lower the 5! <span class="hljs-subst">${myNumber}</span>`</span>);
+}
+</code></pre><h2 id="container">Container</h2>
+				<p>SugoiJS re-exports <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">Inversify container class</a>
 				for support singleton injectable (autowire) services.</p>
 				<p>By using Containers you can achieve singleton services solutions for request\application liftime.</p>
 				<h2 id="exceptions">Exceptions</h2>
-				<p>SugoiJS™ provides base abstract exception(error) class which can be extended and used for exceptions handling</p>
+				<p>SugoiJS provides base abstract exception(error) class which can be extended and used for exceptions handling</p>
 				<pre><code><span class="hljs-selector-tag">SugoiError</span>:{
     <span class="hljs-attribute">code</span>:number;
     <span class="hljs-attribute">message</span>:string;
@@ -167,10 +188,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="enums/comparabletypes.html" class="tsd-kind-icon">Comparable<wbr>Types</a>
+						<a href="enums/schematypes.html" class="tsd-kind-icon">Schema<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/comparable.html" class="tsd-kind-icon">Comparable</a>
+						<a href="classes/comparableschema.html" class="tsd-kind-icon">Comparable<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
@@ -224,10 +245,16 @@
 						<a href="globals.html#tpolicy" class="tsd-kind-icon">TPolicy</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tpolicyresults" class="tsd-kind-icon">TPolicy<wbr>Results</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tvalidateschemadata" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tvalidateschemameta" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#policy_key" class="tsd-kind-icon">POLICY_<wbr>KEY</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#policy_meta_key" class="tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY</a>

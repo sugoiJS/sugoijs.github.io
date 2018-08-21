@@ -38,6 +38,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -60,26 +62,27 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="-sugoi-server">@Sugoi/server</h1>
+				<h1 id="-sugoi-server">@Sugoi/Server</h1>
 				<p><img src="https://sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
-				<p>Sugoi server module is part of the modular Sugoi framework.</p>
-				<p>The server module can be use as stand alone library.</p>
-				<p>This module provide singleton services and decorators.</p>
-				<p>Sugoi server use <a href="https://www.npmjs.com/package/inversify">inversify</a> and <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
+				<p>SugoiJS is a minimal modular framework.</p>
+				<p>SugoiJS gives you the ability to use only what you need and do it fast.</p>
+				<p>this is a standalone module that can be functional on its own (as all of the SugoiJS modules).</p>
+				<p>This module provides singleton services, request handling decorators and request policies decorators.</p>
+				<p>SugoiJS server use <a href="https://www.npmjs.com/package/inversify">inversify</a>, <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
 				<h2 id="installation">Installation</h2>
-				<p> For installing the Sugoi/server module run:</p>
 				<blockquote>
-					<p>npm install --save @sugoi/server @sugoi/core</p>
+					<p>npm install --save @sugoi/server</p>
 				</blockquote>
 				<h3 id="set-controller">Set controller</h3>
-				<pre><code><span class="hljs-keyword">import</span> {controller,response,httpGet,requestParam} from <span class="hljs-string">"@sugoi/server"</span>;
+				<p>SugoiJS use inversify-express-utils decorators and re-export them (also with alias to capitalize camel-case decorator names)</p>
+				<pre><code><span class="hljs-keyword">import</span> {Controller,Response,HttpGet,RequestParam} from <span class="hljs-string">"@sugoi/server"</span>;
 
-<span class="hljs-meta">@controller(<span class="hljs-meta-string">'/dashboard'</span>)</span>
+<span class="hljs-meta">@Controller(<span class="hljs-meta-string">'/dashboard'</span>)</span>
 export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CoreController</span></span>{
     <span class="hljs-keyword">constructor</span>(){}
 
-    <span class="hljs-meta">@httpGet(<span class="hljs-meta-string">"/:role"</span>)</span>
+    <span class="hljs-meta">@HttpGet(<span class="hljs-meta-string">"/:role"</span>)</span>
     test(<span class="hljs-meta">@response()</span> response,<span class="hljs-meta">@requestParam(<span class="hljs-meta-string">'role'</span>)</span> role){
         <span class="hljs-keyword">if</span>(role === <span class="hljs-string">"user"</span> )
             <span class="hljs-keyword">return</span> <span class="hljs-string">"authorized"</span>;
@@ -88,13 +91,14 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         }
     }
 }
-</code></pre><h3 id="set-service">Set service</h3>
-				<p> Service can be any class you want with no special deorators.</p>
+</code></pre><p>Further information can be found on <a href="https://github.com/inversify/inversify-express-utils">Inversify-express-utils documentation</a></p>
+				<h3 id="set-service">Set service</h3>
+				<p> Any class can be used as a service without special decorators.</p>
 				<h3 id="set-module">Set module</h3>
-				<p>  for setting module you should use the @SugModule annotation</p>
-				<pre><code><span class="hljs-keyword">import</span> {SugModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
+				<p>  for setting module you should use the @ServerModule decorator</p>
+				<pre><code><span class="hljs-keyword">import</span> {ServerModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
 
-<span class="hljs-meta">@SugModule</span>({
+<span class="hljs-meta">@ServerModule</span>({
     controllers:[CoreController],
     services: [CoreService],
     modules:[LoginModule,DashboardModule]
@@ -103,13 +107,9 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
     <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
 }
 </code></pre><h3 id="bootstrapping">Bootstrapping</h3>
-				<p>For bootstrapping we will use the init method</p>
-				<blockquote>
-					<p>init(boostrapModule: any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider, container?: inversify.Container)</p>
-				</blockquote>
-				<blockquote>
-					<p>boostrapModule - Entry point module</p>
-				</blockquote>
+				<p>For bootstrapping use the &#39;init&#39; method:</p>
+				<pre><code>init(<span class="hljs-string">boostrapModule:</span> any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider, container?: inversify.Container)
+</code></pre><p>when boostrapModule is the entry point module</p>
 				<blockquote>
 					<p>rootPath - Server uri prefix</p>
 				</blockquote>
@@ -117,18 +117,13 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 
 <span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
 </code></pre><h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
-				<p>For setting static file serving use</p>
-				<blockquote>
-					<p>  setStatic(pathToStatic:string,route?:string)</p>
-				</blockquote>
-				<p>For setting middlewares  we will use</p>
-				<blockquote>
-					<p>  setMiddlewares(...(app)=&gt;void)</p>
-				</blockquote>
-				<p>For setting error handlers we will use</p>
-				<blockquote>
-					<p>  setErrorHandlers((app) =&gt; void)</p>
-				</blockquote>
+				<p>For setting static file serving use:</p>
+				<pre><code>setStatic(<span class="hljs-name">pathToStatic</span><span class="hljs-symbol">:string</span>,route?<span class="hljs-symbol">:string</span>)
+</code></pre><p>For setting middlewares use:</p>
+				<pre><code><span class="hljs-function"><span class="hljs-title">setMiddlewares</span>(<span class="hljs-params">...(app</span>)</span>=&gt;void)
+</code></pre><p>For setting error handlers use:</p>
+				<pre><code>setErrorHandlers(<span class="hljs-function"><span class="hljs-params">(app)</span> =&gt;</span> void)
+</code></pre><p>Full example:</p>
 				<pre><code>(&lt;HttpServer&gt;server)
     .setStatic(<span class="hljs-string">"assets/admin"</span>,<span class="hljs-string">"/admin"</span>)
     .setStatic(<span class="hljs-string">"assets/main"</span>)
@@ -137,12 +132,10 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(compression());
         <span class="hljs-keyword">if</span> (DEVELOPMENT) {
             <span class="hljs-keyword">app</span>.<span class="hljs-keyword">set</span>('json spaces', 2);
-
             <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(cors());
             <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(require('morgan')('dev'));
         }
         <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(express.static(paths.static));
-
     })
     .setErrorHandlers((<span class="hljs-keyword">app</span>) =&gt; {
         <span class="hljs-keyword">app</span>.<span class="hljs-keyword">use</span>(function (req, res, next) {
@@ -158,8 +151,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
             }
         });
     });
-</code></pre><h3 id="build-listening">Build &amp; listening</h3>
-				<p>After setting the middlewares and error handlers we can build and listen to request by:</p>
+</code></pre><h3 id="build-listen">Build &amp; listen</h3>
+				<p>After setting the middlewares and error handlers, build and listen to requests by:</p>
 				<pre><code>(&lt;HttpServer&gt;server).build(PORT)
     .listen(PORT, <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">error</span>: Error)</span> =&gt;</span> {
         <span class="hljs-keyword">if</span> (<span class="hljs-built_in">error</span>) {
@@ -169,7 +162,37 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         logger.<span class="hljs-built_in">debug</span>(`Server running @ ${HOST}:${PORT}`);
     });
 </code></pre><p>This call will return http.Server instance which can be use for setting app variables, socket server and more.</p>
-				<h2 id="documentation">Documentation</h2>
+				<h2 id="policies">Policies</h2>
+				<p>@sugoi/server use @sugoi/core policies and supply predefined policies.</p>
+				<p>And re-export SchemaTypes, TPolicy, TComparableSchema, Policy, UsePolicy, ComparableSchema from &quot;@sugoi/core&quot;;</p>
+				<p>Further information on the <a href="https://sugoijs.com/#/documentation/core/index">@sugoi/core package documentation</a></p>
+				<h3 id="requestschemapolicy">RequestSchemaPolicy</h3>
+				<pre><code><span class="hljs-comment">/**
+ *  paramSchema         - req.params
+ *  queryParamSchema    - req.query
+ *  bodySchema          - req.body
+ *  headersSchema       - req.headers
+ **/</span>
+RequestSchemaPolicy(paramSchema?: TComparableSchema,queryParamSchema?: TComparableSchema,bodySchema?: TComparableSchema,headersSchema?: TComparableSchema)
+</code></pre><p>The <code>RequestSchemaPolicy</code> decorator use for validate the request is using a valid schema for params\queryParams\body\headers.</p>
+				<p>In case null will pass the value won&#39;t check.</p>
+				<p>Example:</p>
+				<pre><code><span class="hljs-variable">@Controller</span>(<span class="hljs-string">'/dashboard'</span>)
+export class DashboardController {
+    <span class="hljs-selector-tag">constructor</span>() {
+    }
+
+    <span class="hljs-variable">@HttpPost</span>(<span class="hljs-string">"/:id"</span>)
+    <span class="hljs-variable">@RequestSchemaPolicy</span>({<span class="hljs-string">"id"</span>: ComparableSchema.ofType(SchemaTypes.NUMBER)},
+                          null,
+                          {<span class="hljs-string">"role"</span>: ComparableSchema.ofType({<span class="hljs-attribute">text</span>: ComparableSchema.ofType(SchemaTypes.STRING).setRegex(<span class="hljs-string">"([A-Z])+"</span>,<span class="hljs-string">"i"</span>)})})
+                          <span class="hljs-comment">//body schema is {role:{text:string//with regex /([A-Z])+/i}}</span>
+    getUser(<span class="hljs-variable">@RequestParam</span>(<span class="hljs-string">"id"</span>) <span class="hljs-attribute">id</span>:number, <span class="hljs-variable">@RequestBody</span>(<span class="hljs-string">"role"</span>) <span class="hljs-attribute">role</span>:{<span class="hljs-attribute">text</span>:string}) {
+        <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">User</span><span class="hljs-selector-class">.findOne</span>({<span class="hljs-selector-tag">id</span>,<span class="hljs-selector-tag">role</span><span class="hljs-selector-class">.text</span>})
+    }
+
+}
+</code></pre><h2 id="documentation">Documentation</h2>
 				<p>You can find further information on <a href="http://www.sugoijs.com">Sugoi official website</a></p>
 			</div>
 		</div>
@@ -183,11 +206,17 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/authorizationutils.html" class="tsd-kind-icon">Authorization<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/httpserver.html" class="tsd-kind-icon">Http<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/parametersvalidatorutil.html" class="tsd-kind-icon">Parameters<wbr>Validator<wbr>Util</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
@@ -204,11 +233,17 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#iexpresscallback" class="tsd-kind-icon">IExpress<wbr>Callback</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#tnewable" class="tsd-kind-icon">TNewable</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#requestschemapolicy" class="tsd-kind-icon">Request<wbr>Schema<wbr>Policy</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>

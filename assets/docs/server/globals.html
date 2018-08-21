@@ -38,6 +38,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -66,8 +68,10 @@
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a></li>
+								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a></li>
+								<li class="tsd-kind-class"><a href="classes/authorizationutils.html" class="tsd-kind-icon">Authorization<wbr>Utils</a></li>
 								<li class="tsd-kind-class"><a href="classes/httpserver.html" class="tsd-kind-icon">Http<wbr>Server</a></li>
+								<li class="tsd-kind-class"><a href="classes/parametersvalidatorutil.html" class="tsd-kind-icon">Parameters<wbr>Validator<wbr>Util</a></li>
 								<li class="tsd-kind-class"><a href="classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a></li>
 								<li class="tsd-kind-class"><a href="classes/sugoiservererror.html" class="tsd-kind-icon">Sugoi<wbr>Server<wbr>Error</a></li>
 							</ul>
@@ -83,6 +87,7 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias"><a href="globals.html#iexpresscallback" class="tsd-kind-icon">IExpress<wbr>Callback</a></li>
+								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="globals.html#tnewable" class="tsd-kind-icon">TNewable</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -90,6 +95,12 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable"><a href="globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#requestschemapolicy" class="tsd-kind-icon">Request<wbr>Schema<wbr>Policy</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -109,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">IExpress<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/interfaces/express-callback.interface.ts#L3">interfaces/express-callback.interface.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/interfaces/express-callback.interface.ts#L3">interfaces/express-callback.interface.ts:3</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -134,6 +145,21 @@
 						</ul>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
+					<a name="tnewable" class="tsd-anchor"></a>
+					<h3>TNewable</h3>
+					<div class="tsd-signature tsd-kind-icon">TNewable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/interfaces/newable.type.ts#L1">interfaces/newable.type.ts:1</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+						</ul>
+					</div>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
@@ -143,19 +169,78 @@
 					<div class="tsd-signature tsd-kind-icon">Module<wbr>Meta<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"sug-module-meta"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;sug-module-meta&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/meta-key.ts#L1">constants/meta-key.ts:1</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/meta-key.ts#L1">constants/meta-key.ts:1</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="sugoi_icon" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> SUGOI_<wbr>ICON</h3>
-					<div class="tsd-signature tsd-kind-icon">SUGOI_<wbr>ICON<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">",,,,.,***,,,,,.,******/%/,,,,,.,*****#&amp;&amp;&amp;&amp;%*,,,,,..,******%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;(,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/,/&amp;&amp;&amp;&amp;&amp;%/,,,,,,..,******%&amp;&amp;&amp;&amp;***,,,,(&amp;&amp;&amp;&amp;,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/*****,,,,,,*&amp;&amp;&amp;&amp;&amp;%/,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%********,,,,,,,,/%&amp;&amp;&amp;&amp;&amp;/,,,,,,,..,*****/%&amp;&amp;&amp;&amp;**********,,,,,,,,,,,(&amp;&amp;&amp;&amp;,,,,,,,,.,********%&amp;&amp;&amp;************,,,,,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,..,************%&amp;&amp;&amp;**********,,,,,,,,,,%&amp;&amp;&amp;&amp;&amp;(,,,,,,,,,,,,,,,..,***************#&amp;&amp;&amp;*********,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,,,,,,,,,,,*******************%&amp;&amp;&amp;&amp;/********,,,,*%&amp;&amp;&amp;&amp;&amp;*,,,,,,,,,,,,,,,,,,,,,,*(%*******************/%&amp;&amp;&amp;&amp;/******,,,,(&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,%#********************#&amp;&amp;&amp;*****,,,,,,/,,,,,,,,,,,,,,,,,,,,,,,,,,/&amp;&amp;**********************&amp;&amp;&amp;&amp;&amp;****,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**********************#&amp;&amp;&amp;&amp;(**,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/************************&amp;&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/*************************%&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**************************#&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************/(((/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/***************************/((((((,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************(((((*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,....,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;(*******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;%&amp;&amp;(*******************************,,......,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,......,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,,,......,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(**********************,...,****,,,,,,,......,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*********************......,***,,,,,,,,......,,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(******************,......,*****,,,,,,,,,,.....,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(****************,......,*******,,,,,,,,,,,......,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;*************.......**********,,,,,,,,,,,,,......,,,,,,,,,,,,(&amp;&amp;&amp;&amp;&amp;&amp;%(*********,......,**********,,,,,,,,,,,,........,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;%(*********,......,********,,,,,,,,,,........,,,,,,,,/%&amp;&amp;&amp;&amp;%/*********,......,*****,,,,,,,,.......,,,,,,,,*%&amp;&amp;&amp;@&amp;&amp;*********,......,***,,,,,........,,,,,,,,(&amp;&amp;&amp;(&amp;&amp;&amp;%(*********,......,,,,.......,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;&amp;%*********,.............,,,,,,,*%&amp;&amp;&amp;&amp;&amp;&amp;%/********,........,,,,,,,,*%&amp;&amp;&amp;%&amp;&amp;***********,...,,,,,,,,,,&amp;&amp;(%***********,,,,,,,,,,,,#/ ___| _   _  __ _  ___     (_)\___ \| | | |/ _&#x60; |/ _ \| |___) | |_| | (_|  |  (_) | ||____/ \__,_|\__, |\___/|_||___/"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;,,,,.,***,,,,,.,******/%/,,,,,.,*****#&amp;&amp;&amp;&amp;%*,,,,,..,******%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;(,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/,/&amp;&amp;&amp;&amp;&amp;%/,,,,,,..,******%&amp;&amp;&amp;&amp;***,,,,(&amp;&amp;&amp;&amp;,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/*****,,,,,,*&amp;&amp;&amp;&amp;&amp;%/,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%********,,,,,,,,/%&amp;&amp;&amp;&amp;&amp;/,,,,,,,..,*****/%&amp;&amp;&amp;&amp;**********,,,,,,,,,,,(&amp;&amp;&amp;&amp;,,,,,,,,.,********%&amp;&amp;&amp;************,,,,,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,..,************%&amp;&amp;&amp;**********,,,,,,,,,,%&amp;&amp;&amp;&amp;&amp;(,,,,,,,,,,,,,,,..,***************#&amp;&amp;&amp;*********,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,,,,,,,,,,,*******************%&amp;&amp;&amp;&amp;/********,,,,*%&amp;&amp;&amp;&amp;&amp;*,,,,,,,,,,,,,,,,,,,,,,*(%*******************/%&amp;&amp;&amp;&amp;/******,,,,(&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,%#********************#&amp;&amp;&amp;*****,,,,,,/,,,,,,,,,,,,,,,,,,,,,,,,,,/&amp;&amp;**********************&amp;&amp;&amp;&amp;&amp;****,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**********************#&amp;&amp;&amp;&amp;(**,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/************************&amp;&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/*************************%&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**************************#&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************/(((/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/***************************/((((((,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************(((((*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,....,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;(*******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;%&amp;&amp;(*******************************,,......,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,......,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,,,......,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(**********************,...,****,,,,,,,......,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*********************......,***,,,,,,,,......,,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(******************,......,*****,,,,,,,,,,.....,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(****************,......,*******,,,,,,,,,,,......,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;*************.......**********,,,,,,,,,,,,,......,,,,,,,,,,,,(&amp;&amp;&amp;&amp;&amp;&amp;%(*********,......,**********,,,,,,,,,,,,........,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;%(*********,......,********,,,,,,,,,,........,,,,,,,,/%&amp;&amp;&amp;&amp;%/*********,......,*****,,,,,,,,.......,,,,,,,,*%&amp;&amp;&amp;@&amp;&amp;*********,......,***,,,,,........,,,,,,,,(&amp;&amp;&amp;(&amp;&amp;&amp;%(*********,......,,,,.......,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;&amp;%*********,.............,,,,,,,*%&amp;&amp;&amp;&amp;&amp;&amp;%/********,........,,,,,,,,*%&amp;&amp;&amp;%&amp;&amp;***********,...,,,,,,,,,,&amp;&amp;(%***********,,,,,,,,,,,,#/ ___| _   _  __ _  ___     (_)\\___ \\| | | |/ _\&#x60; |/ _ \\| |___) | |_| | (_|  |  (_) | ||____/ \\__,_|\\__, |\\___/|_||___/&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">SUGOI_<wbr>ICON<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">",,,,.,***,,,,,.,******/%/,,,,,.,*****#&amp;&amp;&amp;&amp;%*,,,,,..,******%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;(,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/,/&amp;&amp;&amp;&amp;&amp;%/,,,,,,..,******%&amp;&amp;&amp;&amp;***,,,,(&amp;&amp;&amp;&amp;,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/*****,,,,,,*&amp;&amp;&amp;&amp;&amp;%/,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%********,,,,,,,,/%&amp;&amp;&amp;&amp;&amp;/,,,,,,,..,*****/%&amp;&amp;&amp;&amp;**********,,,,,,,,,,,(&amp;&amp;&amp;&amp;,,,,,,,,.,********%&amp;&amp;&amp;************,,,,,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,..,************%&amp;&amp;&amp;**********,,,,,,,,,,%&amp;&amp;&amp;&amp;&amp;(,,,,,,,,,,,,,,,..,***************#&amp;&amp;&amp;*********,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,,,,,,,,,,,*******************%&amp;&amp;&amp;&amp;/********,,,,*%&amp;&amp;&amp;&amp;&amp;*,,,,,,,,,,,,,,,,,,,,,,*(%*******************/%&amp;&amp;&amp;&amp;/******,,,,(&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,%#********************#&amp;&amp;&amp;*****,,,,,,/,,,,,,,,,,,,,,,,,,,,,,,,,,/&amp;&amp;**********************&amp;&amp;&amp;&amp;&amp;****,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**********************#&amp;&amp;&amp;&amp;(**,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/************************&amp;&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/*************************%&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**************************#&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************/(((/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/***************************/((((((,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************(((((*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,....,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;(*******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;%&amp;&amp;(*******************************,,......,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,......,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,,,......,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(**********************,...,****,,,,,,,......,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*********************......,***,,,,,,,,......,,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(******************,......,*****,,,,,,,,,,.....,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(****************,......,*******,,,,,,,,,,,......,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;*************.......**********,,,,,,,,,,,,,......,,,,,,,,,,,,(&amp;&amp;&amp;&amp;&amp;&amp;%(*********,......,**********,,,,,,,,,,,,........,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;%(*********,......,********,,,,,,,,,,........,,,,,,,,/%&amp;&amp;&amp;&amp;%/*********,......,*****,,,,,,,,.......,,,,,,,,*%&amp;&amp;&amp;@&amp;&amp;*********,......,***,,,,,........,,,,,,,,(&amp;&amp;&amp;(&amp;&amp;&amp;%(*********,......,,,,.......,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;&amp;%*********,.............,,,,,,,*%&amp;&amp;&amp;&amp;&amp;&amp;%/********,........,,,,,,,,*%&amp;&amp;&amp;%&amp;&amp;***********,...,,,,,,,,,,&amp;&amp;(%***********,,,,,,,,,,,,#_______  __   __  _______  _______  ___       ___  _______|       ||  | |  ||       ||       ||   |     |   ||       ||  _____||  | |  ||    ___||   _   ||   |     |   ||  _____|| |_____ |  |_|  ||   | __ |  | |  ||   |     |   || |_____|_____  ||       ||   ||  ||  |_|  ||   |  ___|   ||_____  |_____| ||       ||   |_| ||       ||   | |       | _____| ||_______||_______||_______||_______||___| |_______||_______|"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;,,,,.,***,,,,,.,******/%/,,,,,.,*****#&amp;&amp;&amp;&amp;%*,,,,,..,******%&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;(,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/,/&amp;&amp;&amp;&amp;&amp;%/,,,,,,..,******%&amp;&amp;&amp;&amp;***,,,,(&amp;&amp;&amp;&amp;,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%/*****,,,,,,*&amp;&amp;&amp;&amp;&amp;%/,,,,,,,.,******#&amp;&amp;&amp;&amp;&amp;%********,,,,,,,,/%&amp;&amp;&amp;&amp;&amp;/,,,,,,,..,*****/%&amp;&amp;&amp;&amp;**********,,,,,,,,,,,(&amp;&amp;&amp;&amp;,,,,,,,,.,********%&amp;&amp;&amp;************,,,,,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,..,************%&amp;&amp;&amp;**********,,,,,,,,,,%&amp;&amp;&amp;&amp;&amp;(,,,,,,,,,,,,,,,..,***************#&amp;&amp;&amp;*********,,,,,,,,#&amp;&amp;&amp;&amp;,,,,,,,,,,,,,,,,,,,,*******************%&amp;&amp;&amp;&amp;/********,,,,*%&amp;&amp;&amp;&amp;&amp;*,,,,,,,,,,,,,,,,,,,,,,*(%*******************/%&amp;&amp;&amp;&amp;/******,,,,(&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,%#********************#&amp;&amp;&amp;*****,,,,,,/,,,,,,,,,,,,,,,,,,,,,,,,,,/&amp;&amp;**********************&amp;&amp;&amp;&amp;&amp;****,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**********************#&amp;&amp;&amp;&amp;(**,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/************************&amp;&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/*************************%&amp;&amp;&amp;%*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*%&amp;&amp;/**************************#&amp;&amp;&amp;%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************/(((/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/***************************/((((((,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/****************************(((((*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/*******************************,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,....,,,,,,,,,,,,,,,,,,,,,,,,,,,,%&amp;&amp;/******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;(*******************************,.....,,,,,,,,,,,,,,,,,,,,,,,,,,#&amp;%&amp;&amp;(*******************************,,......,,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,......,,,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*******************************,,,,,......,,,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(**********************,...,****,,,,,,,......,,,,,,,,,,,,,,,,,,,#&amp;&amp;&amp;&amp;(*********************......,***,,,,,,,,......,,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(******************,......,*****,,,,,,,,,,.....,,,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;(****************,......,*******,,,,,,,,,,,......,,,,,,,,,,,,,,,(&amp;&amp;&amp;&amp;*************.......**********,,,,,,,,,,,,,......,,,,,,,,,,,,(&amp;&amp;&amp;&amp;&amp;&amp;%(*********,......,**********,,,,,,,,,,,,........,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;%(*********,......,********,,,,,,,,,,........,,,,,,,,/%&amp;&amp;&amp;&amp;%/*********,......,*****,,,,,,,,.......,,,,,,,,*%&amp;&amp;&amp;@&amp;&amp;*********,......,***,,,,,........,,,,,,,,(&amp;&amp;&amp;(&amp;&amp;&amp;%(*********,......,,,,.......,,,,,,,,/%&amp;&amp;%&amp;&amp;&amp;&amp;%*********,.............,,,,,,,*%&amp;&amp;&amp;&amp;&amp;&amp;%/********,........,,,,,,,,*%&amp;&amp;&amp;%&amp;&amp;***********,...,,,,,,,,,,&amp;&amp;(%***********,,,,,,,,,,,,#_______  __   __  _______  _______  ___       ___  _______|       ||  | |  ||       ||       ||   |     |   ||       ||  _____||  | |  ||    ___||   _   ||   |     |   ||  _____|| |_____ |  |_|  ||   | __ |  | |  ||   |     |   || |_____|_____  ||       ||   ||  ||  |_|  ||   |  ___|   ||_____  |_____| ||       ||   |_| ||       ||   | |       | _____| ||_______||_______||_______||_______||___| |_______||_______|&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/icons.ts#L2">constants/icons.ts:2</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/icons.ts#L2">constants/icons.ts:2</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="requestschemapolicy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Request<wbr>Schema<wbr>Policy</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">Request<wbr>Schema<wbr>Policy<span class="tsd-signature-symbol">(</span>paramSchema<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TComparableSchema</span>, queryParamSchema<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TComparableSchema</span>, bodySchema<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TComparableSchema</span>, headersSchema<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TComparableSchema</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/decorators/request-schema-policy.decorator.ts#L4">decorators/request-schema-policy.decorator.ts:4</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> paramSchema: <span class="tsd-signature-type">TComparableSchema</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> queryParamSchema: <span class="tsd-signature-type">TComparableSchema</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> bodySchema: <span class="tsd-signature-type">TComparableSchema</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> headersSchema: <span class="tsd-signature-type">TComparableSchema</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">function</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter-siganture">
+									<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>contextClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, propertyKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, descriptor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyDescriptor</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									</ul>
+									<ul class="tsd-descriptions">
+										<li class="tsd-description">
+											<h4 class="tsd-parameters-title">Parameters</h4>
+											<ul class="tsd-parameters">
+												<li>
+													<h5>contextClass: <span class="tsd-signature-type">any</span></h5>
+												</li>
+												<li>
+													<h5>propertyKey: <span class="tsd-signature-type">string</span></h5>
+												</li>
+												<li>
+													<h5>descriptor: <span class="tsd-signature-type">PropertyDescriptor</span></h5>
+												</li>
+											</ul>
+											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -166,7 +251,7 @@
 					<div class="tsd-signature tsd-kind-icon">EXCEPTIONS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L3">constants/exceptions.constant.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L3">constants/exceptions.constant.ts:3</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -175,7 +260,7 @@
 						<div class="tsd-signature tsd-kind-icon">GENERAL_<wbr>SERVER_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
+								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -184,7 +269,7 @@
 							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5002</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -194,7 +279,7 @@
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Server error&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L6">constants/exceptions.constant.ts:6</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -205,7 +290,7 @@
 						<div class="tsd-signature tsd-kind-icon">INVALID_<wbr>MODULE_<wbr>META<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -214,17 +299,17 @@
 							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5000</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
 								</ul>
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="exceptions.invalid_module_meta.message-1" class="tsd-anchor"></a>
 							<h3>message</h3>
-							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;modules must be annotated with @SugModule&quot;</span></div>
+							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;modules must be annotated with @ServerModule&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L4">constants/exceptions.constant.ts:4</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -235,7 +320,7 @@
 						<div class="tsd-signature tsd-kind-icon">INVALID_<wbr>NAMESPACE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
+								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -244,7 +329,7 @@
 							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5001</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -254,7 +339,37 @@
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Namespace not found&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/&#x27;1.0.0&#x27;/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L5">constants/exceptions.constant.ts:5</a></li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="exceptions.request_argument_not_found" class="tsd-anchor"></a>
+						<h3>REQUEST_<wbr>ARGUMENT_<wbr>NOT_<wbr>FOUND</h3>
+						<div class="tsd-signature tsd-kind-icon">REQUEST_<wbr>ARGUMENT_<wbr>NOT_<wbr>FOUND<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L7">constants/exceptions.constant.ts:7</a></li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="exceptions.request_argument_not_found.code-3" class="tsd-anchor"></a>
+							<h3>code</h3>
+							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5003</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L7">constants/exceptions.constant.ts:7</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="exceptions.request_argument_not_found.message-3" class="tsd-anchor"></a>
+							<h3>message</h3>
+							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Request argument not found&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/de8f246/constants/exceptions.constant.ts#L7">constants/exceptions.constant.ts:7</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -272,11 +387,17 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/authorizationutils.html" class="tsd-kind-icon">Authorization<wbr>Utils</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/httpserver.html" class="tsd-kind-icon">Http<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/parametersvalidatorutil.html" class="tsd-kind-icon">Parameters<wbr>Validator<wbr>Util</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
@@ -293,11 +414,17 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#iexpresscallback" class="tsd-kind-icon">IExpress<wbr>Callback</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#tnewable" class="tsd-kind-icon">TNewable</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#requestschemapolicy" class="tsd-kind-icon">Request<wbr>Schema<wbr>Policy</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>

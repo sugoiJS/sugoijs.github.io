@@ -66,13 +66,13 @@
 						<section class="tsd-index-section ">
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum"><a href="enums/comparabletypes.html" class="tsd-kind-icon">Comparable<wbr>Types</a></li>
+								<li class="tsd-kind-enum"><a href="enums/schematypes.html" class="tsd-kind-icon">Schema<wbr>Types</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class"><a href="classes/comparable.html" class="tsd-kind-icon">Comparable</a></li>
+								<li class="tsd-kind-class"><a href="classes/comparableschema.html" class="tsd-kind-icon">Comparable<wbr>Schema</a></li>
 								<li class="tsd-kind-class"><a href="classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a></li>
 								<li class="tsd-kind-class"><a href="classes/containerservice.html" class="tsd-kind-icon">Container<wbr>Service</a></li>
 								<li class="tsd-kind-class"><a href="classes/genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a></li>
@@ -100,6 +100,7 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#comparablevaluetype" class="tsd-kind-icon">Comparable<wbr>Value<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#tcomparableschema" class="tsd-kind-icon">TComparable<wbr>Schema</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#tpolicy" class="tsd-kind-icon">TPolicy</a></li>
+								<li class="tsd-kind-type-alias"><a href="globals.html#tpolicyresults" class="tsd-kind-icon">TPolicy<wbr>Results</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#tvalidateschemadata" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Data</a></li>
 								<li class="tsd-kind-type-alias"><a href="globals.html#tvalidateschemameta" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta</a></li>
 							</ul>
@@ -107,6 +108,7 @@
 						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#policy_key" class="tsd-kind-icon">POLICY_<wbr>KEY</a></li>
 								<li class="tsd-kind-variable"><a href="globals.html#policy_meta_key" class="tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY</a></li>
 							</ul>
 						</section>
@@ -124,7 +126,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="comparablevaluetype" class="tsd-anchor"></a>
 					<h3>Comparable<wbr>Value<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Comparable<wbr>Value<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="enums/comparabletypes.html" class="tsd-signature-type">ComparableTypes</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">Comparable<wbr>Value<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="enums/schematypes.html" class="tsd-signature-type">SchemaTypes</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/comparable-value.interface.ts#L3">policies/interfaces/comparable-value.interface.ts:3</a></li>
@@ -134,10 +136,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="tcomparableschema" class="tsd-anchor"></a>
 					<h3>TComparable<wbr>Schema</h3>
-					<div class="tsd-signature tsd-kind-icon">TComparable<wbr>Schema<span class="tsd-signature-symbol">:</span> <a href="classes/comparable.html" class="tsd-signature-type">Comparable</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">TComparable<wbr>Schema<span class="tsd-signature-symbol">:</span> <a href="classes/comparableschema.html" class="tsd-signature-type">ComparableSchema</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L3">policies/interfaces/validate-schema-data.interface.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L4">policies/interfaces/validate-schema-data.interface.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">TPolicy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/classes/policy-item.class.ts#L71">policies/classes/policy-item.class.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/classes/policy-item.class.ts#L74">policies/classes/policy-item.class.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -175,12 +177,22 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="tpolicyresults" class="tsd-anchor"></a>
+					<h3>TPolicy<wbr>Results</h3>
+					<div class="tsd-signature tsd-kind-icon">TPolicy<wbr>Results<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/classes/policy-item.class.ts#L73">policies/classes/policy-item.class.ts:73</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="tvalidateschemadata" class="tsd-anchor"></a>
 					<h3>TValidate<wbr>Schema<wbr>Data</h3>
 					<div class="tsd-signature tsd-kind-icon">TValidate<wbr>Schema<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L5">policies/interfaces/validate-schema-data.interface.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L6">policies/interfaces/validate-schema-data.interface.ts:6</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -195,7 +207,7 @@
 					<div class="tsd-signature tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L4">policies/interfaces/validate-schema-data.interface.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/interfaces/validate-schema-data.interface.ts#L5">policies/interfaces/validate-schema-data.interface.ts:5</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -208,9 +220,19 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="policy_key" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> POLICY_<wbr>KEY</h3>
+					<div class="tsd-signature tsd-kind-icon">POLICY_<wbr>KEY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"POLICY"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;POLICY&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/decorators/policy.decorator.ts#L9">policies/decorators/policy.decorator.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="policy_meta_key" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> POLICY_<wbr>META_<wbr>KEY</h3>
-					<div class="tsd-signature tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"POLICY"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;POLICY&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"POLICY_META"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;POLICY_META&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/policies/decorators/policy.decorator.ts#L8">policies/decorators/policy.decorator.ts:8</a></li>
@@ -363,10 +385,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="enums/comparabletypes.html" class="tsd-kind-icon">Comparable<wbr>Types</a>
+						<a href="enums/schematypes.html" class="tsd-kind-icon">Schema<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/comparable.html" class="tsd-kind-icon">Comparable</a>
+						<a href="classes/comparableschema.html" class="tsd-kind-icon">Comparable<wbr>Schema</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
@@ -420,10 +442,16 @@
 						<a href="globals.html#tpolicy" class="tsd-kind-icon">TPolicy</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tpolicyresults" class="tsd-kind-icon">TPolicy<wbr>Results</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tvalidateschemadata" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Data</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tvalidateschemameta" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#policy_key" class="tsd-kind-icon">POLICY_<wbr>KEY</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#policy_meta_key" class="tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY</a>

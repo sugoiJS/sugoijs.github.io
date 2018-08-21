@@ -95,16 +95,16 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mongomodel.html#getmongoid" class="tsd-kind-icon">get<wbr>Mongo<wbr>Id</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#remove" class="tsd-kind-icon">remove</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#save" class="tsd-kind-icon">save</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mongomodel.html#saveemitter" class="tsd-kind-icon">save<wbr>Emitter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#sugafterupdate" class="tsd-kind-icon">sug<wbr>After<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#sugbeforeupdate" class="tsd-kind-icon">sug<wbr>Before<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#sugvalidate" class="tsd-kind-icon">sug<wbr>Validate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mongomodel.html#tojson" class="tsd-kind-icon">toJSON</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mongomodel.html#updateemitter" class="tsd-kind-icon">update<wbr>Emitter</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="mongomodel.html#validate" class="tsd-kind-icon">validate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="mongomodel.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="mongomodel.html#connect" class="tsd-kind-icon">connect</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="mongomodel.html#connectemitter" class="tsd-kind-icon">connect<wbr>Emitter</a></li>
@@ -132,7 +132,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ConnectableModel.__constructor</p>
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:13</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L16">classes/mongo-model.abstract.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="mongomodel.html" class="tsd-signature-type">MongoModel</a></h4>
@@ -149,7 +149,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ModelAbstract.id</p>
 						<ul>
-							<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:4</li>
+							<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:4</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,49 +160,13 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ModelAbstract.status</p>
 						<ul>
-							<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:3</li>
+							<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:3</li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="afterupdate" class="tsd-anchor"></a>
-					<h3>after<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">after<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from ModelAbstract.afterUpdate</p>
-								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:19</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="beforeupdate" class="tsd-anchor"></a>
-					<h3>before<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">before<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from ModelAbstract.beforeUpdate</p>
-								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:18</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getmongoid" class="tsd-anchor"></a>
 					<h3>get<wbr>Mongo<wbr>Id</h3>
@@ -213,7 +177,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:30</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L33">classes/mongo-model.abstract.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -231,7 +195,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ModelAbstract.remove</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:21</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:21</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -255,7 +219,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ModelAbstract.save</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:10</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:10</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,22 +236,76 @@
 					<a name="saveemitter" class="tsd-anchor"></a>
 					<h3>save<wbr>Emitter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">save<wbr>Emitter<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">save<wbr>Emitter<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CollectionInsertOneOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:64</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L69">classes/mongo-model.abstract.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">CollectionInsertOneOptions</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="sugafterupdate" class="tsd-anchor"></a>
+					<h3>sug<wbr>After<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">sug<wbr>After<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ModelAbstract.sugAfterUpdate</p>
+								<ul>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:19</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="sugbeforeupdate" class="tsd-anchor"></a>
+					<h3>sug<wbr>Before<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">sug<wbr>Before<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ModelAbstract.sugBeforeUpdate</p>
+								<ul>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:18</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="sugvalidate" class="tsd-anchor"></a>
+					<h3>sug<wbr>Validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">sug<wbr>Validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ModelAbstract.sugValidate</p>
+								<ul>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:13</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -301,7 +319,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:124</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L128">classes/mongo-model.abstract.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span>
@@ -322,7 +340,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ModelAbstract.update</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:16</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:16</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -339,40 +357,22 @@
 					<a name="updateemitter" class="tsd-anchor"></a>
 					<h3>update<wbr>Emitter</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Emitter<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Emitter<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ReplaceOneOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:81</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L86">classes/mongo-model.abstract.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">ReplaceOneOptions</span><span class="tsd-signature-symbol"> =&nbsp;{upsert: true}</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="validate" class="tsd-anchor"></a>
-					<h3>validate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from ModelAbstract.validate</p>
-								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:13</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -387,7 +387,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ModelAbstract.clone</p>
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:132</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L136">classes/mongo-model.abstract.ts:136</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -414,7 +414,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ConnectableModel.connect</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/connectable-model.abstract.d.ts:11</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/connectable-model.abstract.d.ts:11</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -438,7 +438,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ConnectableModel.connectEmitter</p>
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:137</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L141">classes/mongo-model.abstract.ts:141</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -462,7 +462,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ConnectableModel.disconnect</p>
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:40</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L43">classes/mongo-model.abstract.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -486,7 +486,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ModelAbstract.find</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:7</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:7</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -519,7 +519,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ModelAbstract.findOne</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/model.abstract.d.ts:8</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/model.abstract.d.ts:8</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -552,7 +552,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ConnectableModel.getConnection</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/connectable-model.abstract.d.ts:10</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/connectable-model.abstract.d.ts:10</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -575,7 +575,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in classes/mongo-model.abstract.ts:20</li>
+									<li>Defined in <a href="https://github.com/sugoiJS/mongoDB/blob/&#x27;1.0.0&#x27;/classes/mongo-model.abstract.ts#L23">classes/mongo-model.abstract.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -599,7 +599,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ConnectableModel.setConnection</p>
 								<ul>
-									<li>Defined in node_modules/@sugoi/core/dist/models/connectable-model.abstract.d.ts:9</li>
+									<li>Defined in node_modules/@sugoi/orm/dist/models/connectable-model.abstract.d.ts:9</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -644,12 +644,6 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="mongomodel.html#status" class="tsd-kind-icon">status</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="mongomodel.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="mongomodel.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mongomodel.html#getmongoid" class="tsd-kind-icon">get<wbr>Mongo<wbr>Id</a>
 							</li>
@@ -662,6 +656,15 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mongomodel.html#saveemitter" class="tsd-kind-icon">save<wbr>Emitter</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mongomodel.html#sugafterupdate" class="tsd-kind-icon">sug<wbr>After<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mongomodel.html#sugbeforeupdate" class="tsd-kind-icon">sug<wbr>Before<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="mongomodel.html#sugvalidate" class="tsd-kind-icon">sug<wbr>Validate</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mongomodel.html#tojson" class="tsd-kind-icon">toJSON</a>
 							</li>
@@ -670,9 +673,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="mongomodel.html#updateemitter" class="tsd-kind-icon">update<wbr>Emitter</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="mongomodel.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
 								<a href="mongomodel.html#clone" class="tsd-kind-icon">clone</a>
@@ -709,7 +709,7 @@
 						<a href="sugoimongoerror.html" class="tsd-kind-icon">Sugoi<wbr>Mongo<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#exceptions" class="tsd-kind-icon">Exceptions</a>
+						<a href="../globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
 					</li>
 				</ul>
 			</nav>

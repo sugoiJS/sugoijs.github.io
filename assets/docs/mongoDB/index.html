@@ -63,21 +63,19 @@
 				<h1 id="-sugoi-mongodb">@Sugoi\mongoDB</h1>
 				<p><img src="https://www.sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
-				<p>Sugoi is a minimal modular framework,</p>
-				<p>which gives you the ability to use only what you need, fast.</p>
-				<p>As all of the &quot;Sugoi&quot; modules, this module is stand alone and can act without other Sugoi modules.</p>
-				<p>Sugoi mongoDB package provide ORM solution for mongoDB.</p>
-				<p>This package relays on the Sugoi core ORM infrastructure using the ConnectableModel abstract class.</p>
+				<p>SugoiJS is a minimal modular framework.</p>
+				<p>SugoiJS gives you the ability to use only what you need and do it fast.</p>
+				<p>this is a standalone module that can be functional on its own (as all of the SugoiJS modules).</p>
+				<p>Sugoi mongoDB package provides ORM solutions for mongoDB.</p>
+				<p>This package relays on Sugoi\ORM infrastructure using the ConnectableModel abstract class.</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/mongoDB</p>
 				</blockquote>
 				<h3 id="bootstrapping">Bootstrapping</h3>
-				<p>Bootstrapping done by one line only:</p>
-				<blockquote>
-					<p>MongoModel.setConnection(configuration:IConnectionConfig,connectionName:string = &quot;default)</p>
-				</blockquote>
-				<p>The connectionName is used for multiple connection</p>
+				<p>Bootstrapping done by only one line:</p>
+				<pre><code><span class="hljs-selector-tag">MongoModel</span><span class="hljs-selector-class">.setConnection</span>(<span class="hljs-attribute">configuration</span>:IConnectionConfig,<span class="hljs-attribute">connectionName</span>:string = <span class="hljs-string">"default"</span>)
+</code></pre><p>The connectionName is used for multiple connection</p>
 				<p>Example:</p>
 				<pre><code><span class="hljs-class">import </span>{MongoModel} from <span class="hljs-string">"@sugoi/mongodb"</span>;
 
@@ -90,8 +88,8 @@ MongoModel.setConnection({
 <span class="hljs-symbol">                        password:</span> <span class="hljs-string">"dbPassword"</span>
                       }, <span class="hljs-string">"adminDB"</span>);
 </code></pre><h3 id="create-model">Create Model</h3>
-				<p>For creating a model all you need is to extend the MongoModel class and set your properties</p>
-				<p>just like that:</p>
+				<p>to create a model, all you need is to extend the MongoModel class and set your properties.</p>
+				<p>Just like that:</p>
 				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
     public userId:string;
     public body:string;
@@ -102,8 +100,8 @@ MongoModel.setConnection({
         <span class="hljs-keyword">this</span>.body = body;
     }
 }
-</code></pre><p>By default the collection name is the class name with case sensitive.</p>
-				<p>For override the collection name you can just set the collectionName property</p>
+</code></pre><p>By default the collection name is the class name (case sensitive).</p>
+				<p>For override the collection name, set the collectionName property:</p>
 				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
         public userId:string;
         public body:string;
@@ -116,21 +114,22 @@ MongoModel.setConnection({
     }
 }
 </code></pre><h5 id="using-connections">Using connections</h5>
-				<p>For using different connection for each model all you need to do</p>
-				<p>is override the connnectionName with your connection name
-					export class Message extends MongoModel {
-					public userId:string;
-				public body:string;</p>
-				<pre><code>    <span class="hljs-function"><span class="hljs-keyword">constructor</span><span class="hljs-params">(userId:<span class="hljs-keyword">string</span>,body:<span class="hljs-keyword">string</span>)</span><span class="hljs-comment">{
-        super();
-        this.userId = userId;
-        this.body = body;
-        this.collectionName = "my-app-message";
-        this.connectionName = "adminDB";
-    }</span>
-}</span>
+				<p>For using different connection for each model all you need to do
+				is override the connnectionName with your connection name</p>
+				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
+            public userId:string;
+            public body:string;
+
+    constructor(userId:string,body:string){
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>.userId = userId;
+        <span class="hljs-keyword">this</span>.body = body;
+        <span class="hljs-keyword">this</span>.collectionName = <span class="hljs-string">"my-app-message"</span>;
+        <span class="hljs-keyword">this</span>.connectionName = <span class="hljs-string">"adminDB"</span>;
+    }
+}
 </code></pre><h3 id="model-methods">Model methods</h3>
-				<p>The model as few main methods:</p>
+				<p>The model has some main methods:</p>
 				<h5 id="query">Query</h5>
 				<pre><code>static find<span class="hljs-variable">&lt;T&gt;</span>(query?: <span class="hljs-literal">any</span>): Observable<span class="hljs-variable">&lt;Array&lt;T&gt;</span>&gt;;
 static findOne<span class="hljs-variable">&lt;T&gt;</span>(query?: <span class="hljs-literal">any</span>): Observable<span class="hljs-variable">&lt;T&gt;</span>;
@@ -140,7 +139,8 @@ update(options?: ReplaceOneOptions): Observable<span class="hljs-tag">&lt;<span 
 </code></pre><h5 id="remove">Remove</h5>
 				<pre><code><span class="hljs-comment">remove&lt;T&gt;(): Observable&lt;T&gt;;</span>
 </code></pre><h3 id="model-lifecycle">Model lifecycle</h3>
-				<p>You can find information about the model lifecycle under <a href="http://www.sugoijs.com/documentation/core/index">@sugoi\core documentation</a></p>
+				<p>@sugoi\mongodb module re-export orm lifecycle interfaces.</p>
+				<p>Find information about the model lifecycle under <a href="http://www.sugoijs.com/documentation/orm/index">@sugoi\orm documentation</a></p>
 				<h2 id="documentation">Documentation</h2>
 				<p>You can find further information on <a href="http://www.sugoijs.com">Sugoi official website</a></p>
 			</div>
@@ -165,7 +165,7 @@ update(options?: ReplaceOneOptions): Observable<span class="hljs-tag">&lt;<span 
 						<a href="classes/sugoimongoerror.html" class="tsd-kind-icon">Sugoi<wbr>Mongo<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#exceptions" class="tsd-kind-icon">Exceptions</a>
+						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
 					</li>
 				</ul>
 			</nav>

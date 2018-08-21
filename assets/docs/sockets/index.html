@@ -63,22 +63,32 @@
 				<h1 id="-sugoi-socket">@Sugoi\socket</h1>
 				<p><img src="https://sugoijs.com/assets/logo_inverse.png" alt="Sugoi logo"></p>
 				<h2 id="introduction">Introduction</h2>
-				<p>The sugoi framework socket module using the <a href="https://www.npmjs.com/package/socket.io">socket.io</a>.</p>
-				<p>As all of the &quot;Sugoi&quot; modules, this module is stand alone and can act without other Sugoi modules.</p>
+				<p>SugoiJS is a minimal modular framework.</p>
+				<p>SugoiJS gives you the ability to use only what you need and do it fast.</p>
+				<p>this is a standalone module that can be functional on its own (as all of the SugoiJS modules).</p>
+				<p>The SugoiJS socket module uses the <a href="https://www.npmjs.com/package/socket.io">socket.io</a>.</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/socket</p>
 				</blockquote>
 				<h3 id="bootstrapping">Bootstrapping</h3>
+				<p>Bootstrapping done by:</p>
 				<pre><code>import {socketService} from <span class="hljs-string">"@sugoi/socket"</span>;
 
 // serverInstance is express\koa<span class="hljs-built_in"> instance
 </span>// in case you are using @socket\server, the<span class="hljs-built_in"> instance </span>returns from the 'listen' method
 socketService.init(serverInstance);
 </code></pre><h4 id="socket-options">Socket Options</h4>
+				<p> Init socket server with:</p>
+				<blockquote>
+					<p>namespace -  assign different endpoint to the socket server, more info on <a href="https://socket.io/docs/rooms-and-namespaces/">socket.io documentation</a></p>
+				</blockquote>
+				<blockquote>
+					<p>socketOptions - the socket server configurations</p>
+				</blockquote>
 				<pre><code>socketService.init(serverInstance,<span class="hljs-keyword">namespace</span>,<span class="hljs-title">socketOptions</span>);
 </code></pre><blockquote>
-					<p>socketOptions is the same as on <a href="https://socket.io/docs/server-api/">socket.io documation</a></p>
+					<p>The socketOptions variable interface is the same as on <a href="https://socket.io/docs/server-api/">socket.io documentation</a></p>
 				</blockquote>
 				<pre><code><span class="hljs-symbol"> socketOptions:</span>{
 <span class="hljs-symbol">      path:</span> string,
@@ -88,15 +98,16 @@ socketService.init(serverInstance);
 <span class="hljs-symbol">      parser:</span>Parser
  }
 </code></pre><h3 id="listen-to-events">Listen to events</h3>
-				<p>Sugoi socket module provide you the @socketOn(event:string, namespace:string) decorator.</p>
-				<p>This decorator register the function as a callback for event.
-				Example:</p>
-				<pre><code><span class="hljs-meta">@socketOn(<span class="hljs-meta-string">'message'</span>)</span>
+				<p>SugoiJS socket module provides you the @SocketOn(event:string, namespace:string) decorator.</p>
+				<p>This decorator registers the callback for an event.</p>
+				<p>Example:</p>
+				<pre><code><span class="hljs-meta">@SocketOn(<span class="hljs-meta-string">'message'</span>)</span>
 function(<span class="hljs-keyword">data</span>,socket){
     socket.to(<span class="hljs-keyword">data</span>.room).emit(<span class="hljs-string">'message'</span>,<span class="hljs-keyword">data</span>.message)
 }
-</code></pre><h3 id="get-instance">Get instance</h3>
-				<p>For getting the socketIO server instance you should user the getSocketServerByNamespace socketService class method.</p>
+</code></pre><p>You can use as many decorators as you want.</p>
+				<h3 id="get-instance">Get instance</h3>
+				<p>For getting the socketIO server instance, use the getSocketServerByNamespace socketService class method.</p>
 				<pre><code><span class="hljs-keyword">const</span> io:SocketIOStatic.<span class="hljs-built_in">Server</span> = socketService.getSocketServerByNamespace(<span class="hljs-string">"/"</span>);
 </code></pre><h2 id="documentation">Documentation</h2>
 				<p>You can find further information on <a href="http://www.sugoijs.com">Sugoi official website</a></p>
@@ -112,6 +123,9 @@ function(<span class="hljs-keyword">data</span>,socket){
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/socketerror.html" class="tsd-kind-icon">Socket<wbr>Error</a>
 					</li>
@@ -122,7 +136,7 @@ function(<span class="hljs-keyword">data</span>,socket){
 						<a href="interfaces/isockethandler.html" class="tsd-kind-icon">ISocket<wbr>Handler</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#socketon" class="tsd-kind-icon">socket<wbr>On</a>
+						<a href="globals.html#socketon" class="tsd-kind-icon">Socket<wbr>On</a>
 					</li>
 				</ul>
 			</nav>
