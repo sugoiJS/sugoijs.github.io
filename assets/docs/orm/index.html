@@ -111,8 +111,8 @@
 }
 </code></pre><h3 id="crud-implementation">CRUD Implementation</h3>
 				<p>For CRUD support, you can implement your CRUD logic under each of the CRUD emitters:</p>
-				<h4 id="1-saveemitter">1. SaveEmitter</h4>
-				<pre><code><span class="hljs-keyword">public</span> saveEmitter(<span class="hljs-keyword">options</span>:<span class="hljs-keyword">any</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
+				<h4 id="1-saveemitter">1. saveEmitter</h4>
+				<pre><code><span class="hljs-keyword">public</span> saveEmitter(<span class="hljs-keyword">options</span>?:QueryOptions): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'POST'</span>,
             uri: <span class="hljs-string">'https://api.example.com/myendpoint'</span>,
@@ -120,8 +120,8 @@
             json: <span class="hljs-keyword">true</span>
         })
 }
-</code></pre><h4 id="2-findemitter">2. FindEmitter</h4>
-				<pre><code><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> findEmitter(query: <span class="hljs-keyword">any</span>, <span class="hljs-keyword">options</span> = {}): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
+</code></pre><h4 id="2-findemitter">2. findEmitter</h4>
+				<pre><code><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> findEmitter(query: <span class="hljs-keyword">any</span>, <span class="hljs-keyword">options</span>?:QueryOptions): Promise&lt;<span class="hljs-keyword">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'GET'</span>,
             uri: <span class="hljs-string">'https://api.example.com/myendpoint'</span>,
@@ -129,8 +129,8 @@
             json: <span class="hljs-keyword">true</span>
         })
 }
-</code></pre><h4 id="3-updateemitter">3. UpdateEmitter</h4>
-				<pre><code><span class="hljs-keyword">public</span> updateEmitter(options:<span class="hljs-built_in">any</span> = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
+</code></pre><h4 id="3-updateemitter">3. updateEmitter</h4>
+				<pre><code><span class="hljs-keyword">public</span> updateEmitter(options?:QueryOptions): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'PUT'</span>,
             uri: <span class="hljs-string">`https://api.example.com/myendpoint/<span class="hljs-subst">${this.id}</span>`</span>,
@@ -138,16 +138,110 @@
             json: <span class="hljs-literal">true</span>
         })
 }
-</code></pre><h4 id="4-removeemitter">4. RemoveEmitter</h4>
-				<pre><code><span class="hljs-keyword">protected</span> removeEmitter(query = {}): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
+</code></pre><h4 id="4-removeemitter">4. removeEmitter</h4>
+				<pre><code><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> removeEmitter(query?,options?:QueryOptions):<span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
         <span class="hljs-keyword">return</span> rp({
             method: <span class="hljs-string">'DELETE'</span>,
-            uri: <span class="hljs-string">`https://api.example.com/myendpoint/<span class="hljs-subst">${this.id}</span>`</span>,
+            uri: <span class="hljs-string">`https://api.example.com/myendpoint/<span class="hljs-subst">${query.id}</span>`</span>,
             body: <span class="hljs-keyword">this</span>,
             json: <span class="hljs-literal">true</span>
         })
 }
-</code></pre><h4 id="lifecycle-hooks">Lifecycle Hooks</h4>
+</code></pre><h4 id="model-interface">Model interface</h4>
+				<h5 id="find">Find</h5>
+				<blockquote>
+					<p>(static method) findAll(query: any = {}, options?: QueryOptions) - query all records</p>
+				</blockquote>
+				<blockquote>
+					<p>(static method) findOne(query: any = {}, options:QueryOptions ={limit:1}) - query one record</p>
+				</blockquote>
+				<blockquote>
+					<p>(static method) findById(id: string | number, options:QueryOptions ={limit:1}) - query by id</p>
+				</blockquote>
+				<blockquote>
+					<p>(static method) find(query: any = {}, options?: QueryOptions) - customize query</p>
+				</blockquote>
+				<h5 id="remove">Remove</h5>
+				<blockquote>
+					<p>(static method) removeAll(query: any = {}, options?: QueryOptions) - remove all records</p>
+				</blockquote>
+				<blockquote>
+					<p>(static method) removeOne(query: any = {}, options:QueryOptions ={limit:1}) - remove one record</p>
+				</blockquote>
+				<blockquote>
+					<p>(static method) removeById(id: string | number, options:QueryOptions ={limit:1}) - remove by id</p>
+				</blockquote>
+				<blockquote>
+					<p>(instance method) remove(query: any = {}, options?: QueryOptions) - remove the record itself</p>
+				</blockquote>
+				<h5 id="save-create-">Save (create)</h5>
+				<blockquote>
+					<p>(instance method) save(query: any = {}, options?: QueryOptions) - Save instance to DB\Microservice</p>
+				</blockquote>
+				<h5 id="update">Update</h5>
+				<blockquote>
+					<p>(instance method) update(options?: QueryOptions) - Update instance on DB\Microservice</p>
+				</blockquote>
+				<h5 id="setting-the-model-name">Setting the model name</h5>
+				<p>By default the model name is the name of the class (case sensitive).</p>
+				<p>For changing the model name use:</p>
+				<ol>
+					<li><p>Class static method setModelName(name:string):</p>
+						<pre><code> Post.setModelName(<span class="hljs-string">"posts"</span>)<span class="hljs-comment">;</span>
+</code></pre></li>
+					<li><p>@ModelName(name:string) decorator:</p>
+						<pre><code> <span class="hljs-meta">@ModelName</span>(<span class="hljs-string">"posts"</span>)
+ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ModelAbstract</span></span>{
+ }
+</code></pre></li>
+				</ol>
+				<h5 id="primary-key">Primary key</h5>
+				<p>For query and upsert data @sugoi use primary key of the instance\query object.</p>
+				<p>This primary key is property which decorated with @Primary()</p>
+				<p>Using the Primary key will done by:</p>
+				<ol>
+					<li><p>(Utility function) <code>getPrimaryKey(classToUse)</code></p>
+						<p>Return the primary key name from given class, if not found null will return.</p>
+					</li>
+				</ol>
+				<ol start="2">
+					<li><p>(static method) <code>castIdToQuery(id:string,classToUse = this)</code></p>
+						<p>Will return an object with property name which decorate with Primary as key and the id as value</p>
+						<p><code>classToUse</code> - class to get the primary key from (default is <code>this</code>)</p>
+					</li>
+				</ol>
+				<ol start="3">
+					<li><p>(static method) <code>getIdFromQuery(query: any,classToUse = this, deleteProperty:boolean = true)</code></p>
+						<p>If query contain the primary key the function will return the query primary key value.</p>
+						<p><code>classToUse</code> - class to get the primary key from (default is <code>this</code>)</p>
+						<p><code>deleteProperty</code> - delete primary key property from the query (default is <code>true</code>)</p>
+					</li>
+					<li><p>(instance method) <code>getIdQuery():{[prop:string]:string}</code></p>
+						<p>Return key value object of primary key and its value of the current instance</p>
+						<p>if no primary key set the function will return null;</p>
+					</li>
+				</ol>
+				<p> Full example:</p>
+				<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Post <span class="hljs-keyword">extends</span> ModelAbstract{
+    <span class="hljs-meta">@Primary</span>()
+    <span class="hljs-keyword">public</span> postId:<span class="hljs-built_in">string</span> = <span class="hljs-string">"post-12"</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> getPostById(id:<span class="hljs-built_in">string</span>): <span class="hljs-built_in">Promise</span>&lt;Post&gt;{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.find(<span class="hljs-keyword">this</span>.castIdToQuery(id));
+    }
+
+    <span class="hljs-keyword">public</span> getCurrentPost(): <span class="hljs-built_in">Promise</span>&lt;Post&gt;{
+        <span class="hljs-keyword">const</span> query = getIdQuery(); <span class="hljs-comment">// query = {postId:"post-12"}</span>
+        <span class="hljs-keyword">return</span> Post.find(query);
+    }
+
+    <span class="hljs-keyword">public</span> getPrimaryKeyName(): <span class="hljs-built_in">string</span>{
+        <span class="hljs-keyword">return</span> getPrimaryKey(<span class="hljs-keyword">this</span>);<span class="hljs-comment">// result is "postId"</span>
+    }
+
+}
+</code></pre><p>All of the @sugoi/orm predefined interface methods which mentioned before use the Primary key.</p>
+				<h4 id="lifecycle-hooks">Lifecycle Hooks</h4>
 				<p>SugoiJS ORM uses predefined lifecycle hooks that can be implemented by interfaces:</p>
 				<ol>
 					<li>IBeforeValidate</li>
@@ -173,6 +267,12 @@
 					<li class=" tsd-kind-enum">
 						<a href="enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/decorator_keys.html" class="tsd-kind-icon">DECORATOR_<wbr>KEYS</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
 					</li>
@@ -181,6 +281,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
@@ -204,7 +307,22 @@
 						<a href="interfaces/iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodel.html" class="tsd-kind-icon">IModel</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tidentifiertypes" class="tsd-kind-icon">TIdentifier<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#modelname" class="tsd-kind-icon">Model<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#primary" class="tsd-kind-icon">Primary</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getprimarykey" class="tsd-kind-icon">get<wbr>Primary<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>

@@ -67,6 +67,8 @@
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum"><a href="enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a></li>
+								<li class="tsd-kind-enum"><a href="enums/decorator_keys.html" class="tsd-kind-icon">DECORATOR_<wbr>KEYS</a></li>
+								<li class="tsd-kind-enum"><a href="enums/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -75,6 +77,7 @@
 								<li class="tsd-kind-class"><a href="classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a></li>
 								<li class="tsd-kind-class"><a href="classes/connection.html" class="tsd-kind-icon">Connection</a></li>
 								<li class="tsd-kind-class"><a href="classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a></li>
+								<li class="tsd-kind-class"><a href="classes/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a></li>
 								<li class="tsd-kind-class"><a href="classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a></li>
 							</ul>
 						</section>
@@ -87,7 +90,22 @@
 								<li class="tsd-kind-interface"><a href="interfaces/ibeforeupdate.html" class="tsd-kind-icon">IBefore<wbr>Update</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ibeforevalidate.html" class="tsd-kind-icon">IBefore<wbr>Validate</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/imodel.html" class="tsd-kind-icon">IModel</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#tidentifiertypes" class="tsd-kind-icon">TIdentifier<wbr>Types</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function"><a href="globals.html#modelname" class="tsd-kind-icon">Model<wbr>Name</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#primary" class="tsd-kind-icon">Primary</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#getprimarykey" class="tsd-kind-icon">get<wbr>Primary<wbr>Key</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -97,6 +115,104 @@
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="tidentifiertypes" class="tsd-anchor"></a>
+					<h3>TIdentifier<wbr>Types</h3>
+					<div class="tsd-signature tsd-kind-icon">TIdentifier<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in interfaces/identifer-types.type.ts:1</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="modelname" class="tsd-anchor"></a>
+					<h3>Model<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">Model<wbr>Name<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in decorators/model-name.decorator.ts:4</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="primary" class="tsd-anchor"></a>
+					<h3>Primary</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">Primary<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in decorators/primary.decorator.ts:11</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set property as primary key.
+									This key is use later to query, update and remove models.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>constructor</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="getprimarykey" class="tsd-anchor"></a>
+					<h3>get<wbr>Primary<wbr>Key</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Primary<wbr>Key<span class="tsd-signature-symbol">(</span>contextClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in decorators/primary.decorator.ts:26</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get primary key of certain class.
+									In case the class doesn&#39;t have primary key the function will check recursivly at the parent class</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>contextClass: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -171,6 +287,36 @@
 						</section>
 					</section>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
+						<a name="exceptions.not_extend_model" class="tsd-anchor"></a>
+						<h3>NOT_<wbr>EXTEND_<wbr>MODEL</h3>
+						<div class="tsd-signature tsd-kind-icon">NOT_<wbr>EXTEND_<wbr>MODEL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in constants/exceptions.contant.ts:7</li>
+							</ul>
+						</aside>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="exceptions.not_extend_model.code-2" class="tsd-anchor"></a>
+							<h3>code</h3>
+							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5002</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in constants/exceptions.contant.ts:7</li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="exceptions.not_extend_model.message-2" class="tsd-anchor"></a>
+							<h3>message</h3>
+							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Class not extend ModelAbstract&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in constants/exceptions.contant.ts:7</li>
+								</ul>
+							</aside>
+						</section>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
 						<a name="exceptions.not_implemented" class="tsd-anchor"></a>
 						<h3>NOT_<wbr>IMPLEMENTED</h3>
 						<div class="tsd-signature tsd-kind-icon">NOT_<wbr>IMPLEMENTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
@@ -180,7 +326,7 @@
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="exceptions.not_implemented.code-2" class="tsd-anchor"></a>
+							<a name="exceptions.not_implemented.code-3" class="tsd-anchor"></a>
 							<h3>code</h3>
 							<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5000</span></div>
 							<aside class="tsd-sources">
@@ -190,7 +336,7 @@
 							</aside>
 						</section>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="exceptions.not_implemented.message-2" class="tsd-anchor"></a>
+							<a name="exceptions.not_implemented.message-3" class="tsd-anchor"></a>
 							<h3>message</h3>
 							<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Implementation is missing&quot;</span></div>
 							<aside class="tsd-sources">
@@ -216,6 +362,12 @@
 					<li class=" tsd-kind-enum">
 						<a href="enums/connection_status.html" class="tsd-kind-icon">CONNECTION_<wbr>STATUS</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/decorator_keys.html" class="tsd-kind-icon">DECORATOR_<wbr>KEYS</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
 					</li>
@@ -224,6 +376,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
@@ -247,7 +402,22 @@
 						<a href="interfaces/iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodel.html" class="tsd-kind-icon">IModel</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tidentifiertypes" class="tsd-kind-icon">TIdentifier<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#modelname" class="tsd-kind-icon">Model<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#primary" class="tsd-kind-icon">Primary</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getprimarykey" class="tsd-kind-icon">get<wbr>Primary<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
