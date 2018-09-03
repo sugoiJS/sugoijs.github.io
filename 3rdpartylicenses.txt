@@ -310,11 +310,11 @@ END OF TERMS AND CONDITIONS
 MIT
 MIT
 
-@angular/platform-browser@6.0.7
+@angular/router@6.0.7
 MIT
 MIT
 
-@angular/router@6.0.7
+@angular/platform-browser@6.0.7
 MIT
 MIT
 
