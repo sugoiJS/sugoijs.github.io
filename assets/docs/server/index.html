@@ -69,12 +69,45 @@
 				<p>SugoiJS gives you the ability to use only what you need and do it fast.</p>
 				<p>this is a standalone module that can be functional on its own (as all of the SugoiJS modules).</p>
 				<p>This module provides singleton services, request handling decorators and request policies decorators.</p>
-				<p>SugoiJS server use <a href="https://www.npmjs.com/package/inversify">inversify</a>, <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
+				<p>SugoiJS server uses <a href="https://www.npmjs.com/package/inversify">inversify</a>, <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/server</p>
 				</blockquote>
-				<h3 id="set-controller">Set controller</h3>
+				<h3 id="bootstrapping">Bootstrapping</h3>
+				<p>To boostrap you server use the &#39;init&#39; method:</p>
+				<pre><code>init(<span class="hljs-string">boostrapModule:</span> any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider, container?: inversify.Container)
+</code></pre><p>when boostrapModule is the entry point module</p>
+				<blockquote>
+					<p>rootPath - Server uri prefix</p>
+				</blockquote>
+				<pre><code><span class="hljs-keyword">import</span> {HttpServer} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>;
+
+<span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
+</code></pre><h3 id="build-listen">Build &amp; listen</h3>
+				<p>After setting the middlewares and error handlers, build and listen to requests by:</p>
+				<pre><code>(&lt;HttpServer&gt;server).build()
+    .listen(PORT, <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">error</span>: Error)</span> =&gt;</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">error</span>) {
+            logger.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
+            throw <span class="hljs-built_in">error</span>;
+        }
+        logger.<span class="hljs-built_in">debug</span>(`Server running @ ${HOST}:${PORT}`);
+    });
+</code></pre><p>This call will return http.Server instance which can be use for setting app variables, socket server and more.</p>
+				<h3 id="set-module">Set module</h3>
+				<p>Creating a module requires you to should use the @ServerModule decorator</p>
+				<pre><code><span class="hljs-keyword">import</span> {ServerModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
+
+<span class="hljs-meta">@ServerModule</span>({
+    controllers:[CoreController],
+    services: [CoreService],
+    modules:[LoginModule,DashboardModule]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerModule{
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
+}
+</code></pre><h3 id="set-controller">Set controller</h3>
 				<p>SugoiJS use inversify-express-utils decorators and re-export them (also with alias to capitalize camel-case decorator names)</p>
 				<pre><code><span class="hljs-keyword">import</span> {Controller,Response,HttpGet,RequestParam} from <span class="hljs-string">"@sugoi/server"</span>;
 
@@ -93,30 +126,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre><p>Further information can be found on <a href="https://github.com/inversify/inversify-express-utils">Inversify-express-utils documentation</a></p>
 				<h3 id="set-service">Set service</h3>
-				<p> Any class can be used as a service without special decorators.</p>
-				<h3 id="set-module">Set module</h3>
-				<p>  for setting module you should use the @ServerModule decorator</p>
-				<pre><code><span class="hljs-keyword">import</span> {ServerModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
-
-<span class="hljs-meta">@ServerModule</span>({
-    controllers:[CoreController],
-    services: [CoreService],
-    modules:[LoginModule,DashboardModule]
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerModule{
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
-}
-</code></pre><h3 id="bootstrapping">Bootstrapping</h3>
-				<p>For bootstrapping use the &#39;init&#39; method:</p>
-				<pre><code>init(<span class="hljs-string">boostrapModule:</span> any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider, container?: inversify.Container)
-</code></pre><p>when boostrapModule is the entry point module</p>
-				<blockquote>
-					<p>rootPath - Server uri prefix</p>
-				</blockquote>
-				<pre><code><span class="hljs-keyword">import</span> {HttpServer} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>;
-
-<span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
-</code></pre><h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
+				<p>Any class can be used as a service without special decorators.</p>
+				<h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
 				<p>For setting static file serving use:</p>
 				<pre><code>setStatic(<span class="hljs-name">pathToStatic</span><span class="hljs-symbol">:string</span>,route?<span class="hljs-symbol">:string</span>)
 </code></pre><p>For setting middlewares use:</p>
@@ -151,19 +162,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
             }
         });
     });
-</code></pre><h3 id="build-listen">Build &amp; listen</h3>
-				<p>After setting the middlewares and error handlers, build and listen to requests by:</p>
-				<pre><code>(&lt;HttpServer&gt;server).build(PORT)
-    .listen(PORT, <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">error</span>: Error)</span> =&gt;</span> {
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">error</span>) {
-            logger.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
-            throw <span class="hljs-built_in">error</span>;
-        }
-        logger.<span class="hljs-built_in">debug</span>(`Server running @ ${HOST}:${PORT}`);
-    });
-</code></pre><p>This call will return http.Server instance which can be use for setting app variables, socket server and more.</p>
-				<h2 id="policies">Policies</h2>
-				<p>@sugoi/server use @sugoi/core policies and supply predefined policies.</p>
+</code></pre><h2 id="policies">Policies</h2>
+				<p>@sugoi/server uses @sugoi/core policies and supply predefined policies.</p>
 				<p>And re-export SchemaTypes, TPolicy, TComparableSchema, Policy, UsePolicy, ComparableSchema from &quot;@sugoi/core&quot;;</p>
 				<p>Further information on the <a href="https://sugoijs.com/#/documentation/core/index">@sugoi/core package documentation</a></p>
 				<h3 id="requestschemapolicy">RequestSchemaPolicy</h3>
