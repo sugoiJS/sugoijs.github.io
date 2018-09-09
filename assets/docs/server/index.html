@@ -126,7 +126,28 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre><p>Further information can be found on <a href="https://github.com/inversify/inversify-express-utils">Inversify-express-utils documentation</a></p>
 				<h3 id="set-service">Set service</h3>
-				<p>Any class can be used as a service without special decorators.</p>
+				<p>For setting class as service the class must be decorated with <code>@Injectable</code> decorator, this will set the class as singleton.</p>
+				<pre><code><span class="hljs-meta">@Injectable()</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span></span>{
+    <span class="hljs-keyword">public</span> listeners:number = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">public</span> incListeners(){
+        <span class="hljs-keyword">this</span>.listeners++;
+    }
+
+    <span class="hljs-keyword">public</span> decListeners(){
+        <span class="hljs-keyword">this</span>.listeners--;
+    }
+}
+</code></pre><p>later we will be able to inject the service instance:</p>
+				<ul>
+					<li><p><code>@Inject(MyService)</code></p>
+					</li>
+					<li><p><code>@Inject(&quot;MyService&quot;)</code></p>
+					</li>
+					<li><p><code>constructor(myService:MyService)</code></p>
+					</li>
+				</ul>
 				<h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
 				<p>For setting static file serving use:</p>
 				<pre><code>setStatic(<span class="hljs-name">pathToStatic</span><span class="hljs-symbol">:string</span>,route?<span class="hljs-symbol">:string</span>)
