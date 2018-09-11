@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IBeforeValidate | @sugoi/orm</title>
+	<title>SortItem | @sugoi/orm</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="ibeforevalidate.html">IBeforeValidate</a>
+					<a href="sortitem.html">SortItem</a>
 				</li>
 			</ul>
-			<h1>Interface IBeforeValidate</h1>
+			<h1>Class SortItem</h1>
 		</div>
 	</div>
 </header>
@@ -66,8 +66,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IBeforeValidate</span>
+						<span class="target">SortItem</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/isortitem.html" class="tsd-signature-type">ISortItem</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -75,35 +81,73 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ibeforevalidate.html#beforevalidate" class="tsd-kind-icon">before<wbr>Validate</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="sortitem.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="sortitem.html#field" class="tsd-kind-icon">field</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="sortitem.html#sortoption" class="tsd-kind-icon">sort<wbr>Option</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="beforevalidate" class="tsd-anchor"></a>
-					<h3>before<wbr>Validate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">before<wbr>Validate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></li>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Sort<wbr>Item<span class="tsd-signature-symbol">(</span>sortOption<span class="tsd-signature-symbol">: </span><a href="../enums/sortoptions.html" class="tsd-signature-type">SortOptions</a>, field<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="sortitem.html" class="tsd-signature-type">SortItem</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in interfaces/before-validate.interface.ts:2</li>
+									<li>Defined in classes/sort-item.class.ts:4</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">void</span>
-							</h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sortOption: <a href="../enums/sortoptions.html" class="tsd-signature-type">SortOptions</a></h5>
+								</li>
+								<li>
+									<h5>field: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="sortitem.html" class="tsd-signature-type">SortItem</a></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="field" class="tsd-anchor"></a>
+					<h3>field</h3>
+					<div class="tsd-signature tsd-kind-icon">field<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/isortitem.html">ISortItem</a>.<a href="../interfaces/isortitem.html#field">field</a></p>
+						<ul>
+							<li>Defined in classes/sort-item.class.ts:5</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="sortoption" class="tsd-anchor"></a>
+					<h3>sort<wbr>Option</h3>
+					<div class="tsd-signature tsd-kind-icon">sort<wbr>Option<span class="tsd-signature-symbol">:</span> <a href="../enums/sortoptions.html" class="tsd-signature-type">SortOptions</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/isortitem.html">ISortItem</a>.<a href="../interfaces/isortitem.html#sortoption">sortOption</a></p>
+						<ul>
+							<li>Defined in classes/sort-item.class.ts:5</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -127,58 +171,64 @@
 						<a href="../enums/sortoptions.html" class="tsd-kind-icon">Sort<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
+						<a href="connectablemodel.html" class="tsd-kind-icon">Connectable<wbr>Model</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/connection.html" class="tsd-kind-icon">Connection</a>
+						<a href="connection.html" class="tsd-kind-icon">Connection</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
+						<a href="modelabstract.html" class="tsd-kind-icon">Model<wbr>Abstract</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="../classes/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/sortitem.html" class="tsd-kind-icon">Sort<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iaftersave.html" class="tsd-kind-icon">IAfter<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="iafterupdate.html" class="tsd-kind-icon">IAfter<wbr>Update</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ibeforesave.html" class="tsd-kind-icon">IBefore<wbr>Save</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="ibeforeupdate.html" class="tsd-kind-icon">IBefore<wbr>Update</a>
+						<a href="queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ibeforevalidate.html" class="tsd-kind-icon">IBefore<wbr>Validate</a>
+					<li class="current tsd-kind-class">
+						<a href="sortitem.html" class="tsd-kind-icon">Sort<wbr>Item</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ibeforevalidate.html#beforevalidate" class="tsd-kind-icon">before<wbr>Validate</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="sortitem.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="sortitem.html#field" class="tsd-kind-icon">field</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="sortitem.html#sortoption" class="tsd-kind-icon">sort<wbr>Option</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
+					<li class=" tsd-kind-class">
+						<a href="sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="imodel.html" class="tsd-kind-icon">IModel</a>
+						<a href="../interfaces/iaftersave.html" class="tsd-kind-icon">IAfter<wbr>Save</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="isortitem.html" class="tsd-kind-icon">ISort<wbr>Item</a>
+						<a href="../interfaces/iafterupdate.html" class="tsd-kind-icon">IAfter<wbr>Update</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="ivalidate.html" class="tsd-kind-icon">IValidate</a>
+						<a href="../interfaces/ibeforesave.html" class="tsd-kind-icon">IBefore<wbr>Save</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ibeforeupdate.html" class="tsd-kind-icon">IBefore<wbr>Update</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ibeforevalidate.html" class="tsd-kind-icon">IBefore<wbr>Validate</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/iconnectionconfig.html" class="tsd-kind-icon">IConnection<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/imodel.html" class="tsd-kind-icon">IModel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/isortitem.html" class="tsd-kind-icon">ISort<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#tidentifiertypes" class="tsd-kind-icon">TIdentifier<wbr>Types</a>

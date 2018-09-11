@@ -77,7 +77,7 @@
 				<p>Models of this type have direct connection to the storage unit.</p>
 				<p>Its most common usage is for TCP connection.</p>
 				<p>Example (by the @sugoi/mongodb package implementation):</p>
-				<pre><code><span class="hljs-keyword">import</span> {Connection,ConnectableModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/core"</span>;
+				<pre><code><span class="hljs-keyword">import</span> {Connection,ConnectableModel} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/orm"</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MongoModel <span class="hljs-keyword">extends</span> ConnectableModel{
     <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> ConnectionType:Connection = MongoConnection;
@@ -97,7 +97,20 @@
                 });
         }
 }
-</code></pre><h3 id="2-restful-model">2. RESTFUL Model</h3>
+</code></pre><h4 id="setting-connectable-model-connection-name">Setting connectable model connection name</h4>
+				<p>By default connectable model use connection which label by name &quot;default&quot; (case sensitive).</p>
+				<p>For changing the connection name use:</p>
+				<ol>
+					<li><p>Class static method setModelName(name:string):</p>
+						<pre><code> Post.setConnectionName(<span class="hljs-string">"adminDB"</span>)<span class="hljs-comment">;</span>
+</code></pre></li>
+					<li><p>@ConnectionName(name:string) decorator:</p>
+						<pre><code> <span class="hljs-meta">@ConnectionName</span>(<span class="hljs-string">"adminDB"</span>)
+ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Post</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ModelAbstract</span></span>{
+ }
+</code></pre></li>
+				</ol>
+				<h3 id="2-restful-model">2. RESTFUL Model</h3>
 				<p>Models of this type don&#39;t have direct connection to the storage unit.</p>
 				<p>The communication is done by a single request. The connection closes as soon as the request is completed.</p>
 				<p>Common usage is restful requests.</p>
@@ -147,8 +160,36 @@
             json: <span class="hljs-literal">true</span>
         })
 }
-</code></pre><h4 id="model-interface">Model interface</h4>
-				<h5 id="find">Find</h5>
+</code></pre><h3 id="queryoptions">QueryOptions</h3>
+				<p>QueryOptions is an object which provides the query meta-data like sort, offset and limit.</p>
+				<p>QueryOptions class contains a <code>builder</code> method for easy &quot;inline&quot; usage.</p>
+				<h4 id="properties">Properties</h4>
+				<blockquote>
+					<p>limit:number - The maximum records amount to query. default - 0.</p>
+				</blockquote>
+				<blockquote>
+					<p>offset:number - The amount of record which should be skipped, can also be use for page number. default - 0.</p>
+				</blockquote>
+				<blockquote>
+					<p>sort:Array<SortItem> - Array of all the sorted fields and their direction</p>
+				</blockquote>
+				<pre><code>SortItem{
+    sortOption: SortOptions;<span class="hljs-regexp">//</span> <span class="hljs-string">"DESC"</span> | <span class="hljs-string">"ASC"</span>
+    field: string;
+}
+</code></pre><h4 id="usage-example">Usage example</h4>
+				<pre><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> pagingQuery(<span class="hljs-string">query:</span>any,<span class="hljs-string">limit:</span>number,<span class="hljs-string">page:</span>number){
+    DataModel.findAll(query, QueryOptions.builder()
+                        .setLimit(limit)
+                        .setOffset(page)
+                        .setSortOption(
+                            <span class="hljs-keyword">new</span> SortItem(SortOptions.DESC, <span class="hljs-string">"amount"</span>),
+                            <span class="hljs-keyword">new</span> SortItem(SortOptions.ASC, <span class="hljs-string">"lastUpdate"</span>)
+                        )
+                    );
+}
+</code></pre><h3 id="model-interface">Model interface</h3>
+				<h4 id="find">Find</h4>
 				<blockquote>
 					<p>(static method) findAll(query: any = {}, options?: QueryOptions) - query all records</p>
 				</blockquote>
@@ -161,7 +202,7 @@
 				<blockquote>
 					<p>(static method) find(query: any = {}, options?: QueryOptions) - customize query</p>
 				</blockquote>
-				<h5 id="remove">Remove</h5>
+				<h4 id="remove">Remove</h4>
 				<blockquote>
 					<p>(static method) removeAll(query: any = {}, options?: QueryOptions) - remove all records</p>
 				</blockquote>
@@ -174,11 +215,14 @@
 				<blockquote>
 					<p>(instance method) remove(query: any = {}, options?: QueryOptions) - remove the record itself</p>
 				</blockquote>
-				<h5 id="save-create-">Save (create)</h5>
+				<h4 id="save-create-">Save (create)</h4>
 				<blockquote>
-					<p>(instance method) save(query: any = {}, options?: QueryOptions) - Save instance to DB\Microservice</p>
+					<p>(instance method) save(options?: QueryOptions) - Save instance to DB\Microservice</p>
 				</blockquote>
-				<h5 id="update">Update</h5>
+				<h4 id="update">Update</h4>
+				<blockquote>
+					<p>(static method) updateById(id: string | number,, options:QueryOptions ={limit:1}) - update by id</p>
+				</blockquote>
 				<blockquote>
 					<p>(instance method) update(options?: QueryOptions) - Update instance on DB\Microservice</p>
 				</blockquote>
@@ -286,6 +330,9 @@
 						<a href="classes/queryoptions.html" class="tsd-kind-icon">Query<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/sortitem.html" class="tsd-kind-icon">Sort<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/sugoimodelexception.html" class="tsd-kind-icon">Sugoi<wbr>Model<wbr>Exception</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -310,10 +357,16 @@
 						<a href="interfaces/imodel.html" class="tsd-kind-icon">IModel</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/isortitem.html" class="tsd-kind-icon">ISort<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/ivalidate.html" class="tsd-kind-icon">IValidate</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#tidentifiertypes" class="tsd-kind-icon">TIdentifier<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#connectionname" class="tsd-kind-icon">Connection<wbr>Name</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#modelname" class="tsd-kind-icon">Model<wbr>Name</a>
