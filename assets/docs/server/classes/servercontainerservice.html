@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ContainerService | @sugoi/core</title>
+	<title>ServerContainerService | @sugoi/server</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@sugoi/core</a>
+					<a href="../index.html" class="title">@sugoi/server</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,6 +38,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -52,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="containerservice.html">ContainerService</a>
+					<a href="servercontainerservice.html">ServerContainerService</a>
 				</li>
 			</ul>
-			<h1>Class ContainerService</h1>
+			<h1>Class ServerContainerService</h1>
 		</div>
 	</div>
 </header>
@@ -66,7 +68,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ContainerService</span>
+						<span class="tsd-signature-type">ContainerService</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">ServerContainerService</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -75,79 +82,111 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#container" class="tsd-kind-icon">container</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="servercontainerservice.html#container" class="tsd-kind-icon">container</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="servercontainerservice.html#containersmap" class="tsd-kind-icon">containers<wbr>Map</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#initcontainer" class="tsd-kind-icon">init<wbr>Container</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="containerservice.html#inject" class="tsd-kind-icon">inject</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="containerservice.html#unregister" class="tsd-kind-icon">unregister</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="servercontainerservice.html#getcontainerbyid" class="tsd-kind-icon">get<wbr>Container<wbr>ById</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="servercontainerservice.html#initcontainer" class="tsd-kind-icon">init<wbr>Container</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="servercontainerservice.html#inject" class="tsd-kind-icon">inject</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="servercontainerservice.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="servercontainerservice.html#setcontainerforid" class="tsd-kind-icon">set<wbr>Container<wbr>For<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="servercontainerservice.html#unregister" class="tsd-kind-icon">unregister</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="container" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> container</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> container<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Container</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L7">services/container.service.ts:7</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Container</span></h4>
-						</li>
-					</ul>
+					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Container</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from ContainerService.container</p>
+						<ul>
+							<li>Defined in node_modules/@sugoi/core/dist/services/container.service.d.ts:5</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="containersmap" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> containers<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">containers<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Container</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/sugoiJS/server/blob/fba7eef/services/server-container.service.ts#L5">services/server-container.service.ts:5</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="initcontainer" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> init<wbr>Container</h3>
+					<a name="getcontainerbyid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Container<wbr>ById</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">init<wbr>Container<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ContainerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Container<wbr>ById<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Container</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L11">services/container.service.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/fba7eef/services/server-container.service.ts#L16">services/server-container.service.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">ContainerOptions</span></h5>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Container</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
+					<a name="initcontainer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> init<wbr>Container</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">init<wbr>Container<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ContainerOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides ContainerService.initContainer</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/fba7eef/services/server-container.service.ts#L7">services/server-container.service.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> config: <span class="tsd-signature-type">ContainerOptions</span><span class="tsd-signature-symbol"> =&nbsp;{defaultScope: &quot;Transient&quot;}</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
 					<a name="inject" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> inject</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">inject&lt;T&gt;<span class="tsd-signature-symbol">(</span>Class<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from ContainerService.inject</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L24">services/container.service.ts:24</a></li>
+									<li>Defined in node_modules/@sugoi/core/dist/services/container.service.d.ts:8</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -166,23 +205,24 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="register" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> register</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>repos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="containerrepo.html" class="tsd-signature-type">ContainerRepo</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Container</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>repos<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ContainerRepo</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Container</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from ContainerService.register</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L16">services/container.service.ts:16</a></li>
+									<li>Defined in node_modules/@sugoi/core/dist/services/container.service.d.ts:7</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>repos: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="containerrepo.html" class="tsd-signature-type">ContainerRepo</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>repos: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ContainerRepo</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Container</span></h4>
@@ -190,16 +230,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="unregister" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> unregister</h3>
+					<a name="setcontainerforid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> set<wbr>Container<wbr>For<wbr>Id</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">unregister<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Container<wbr>For<wbr>Id<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/sugoiJS/core/blob/&#x27;1.0.0&#x27;/services/container.service.ts#L29">services/container.service.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/sugoiJS/server/blob/fba7eef/services/server-container.service.ts#L11">services/server-container.service.ts:11</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="unregister" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> unregister</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">unregister<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">interfaces.ServiceIdentifier</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from ContainerService.unregister</p>
+								<ul>
+									<li>Defined in node_modules/@sugoi/core/dist/services/container.service.d.ts:9</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -224,98 +288,86 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/schematypes.html" class="tsd-kind-icon">Schema<wbr>Types</a>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="authprovider.html" class="tsd-kind-icon">Auth<wbr>Provider</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="comparableschema.html" class="tsd-kind-icon">Comparable<wbr>Schema</a>
+						<a href="authorizationutils.html" class="tsd-kind-icon">Authorization<wbr>Utils</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="containerrepo.html" class="tsd-kind-icon">Container<wbr>Repo</a>
+						<a href="httpserver.html" class="tsd-kind-icon">Http<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="parametersvalidatorutil.html" class="tsd-kind-icon">Parameters<wbr>Validator<wbr>Util</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="requestcontainerservice.html" class="tsd-kind-icon">Request<wbr>Container<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="containerservice.html" class="tsd-kind-icon">Container<wbr>Service</a>
+						<a href="servercontainerservice.html" class="tsd-kind-icon">Server<wbr>Container<wbr>Service</a>
 						<ul>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#container" class="tsd-kind-icon">container</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="servercontainerservice.html#container" class="tsd-kind-icon">container</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="servercontainerservice.html#containersmap" class="tsd-kind-icon">containers<wbr>Map</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#initcontainer" class="tsd-kind-icon">init<wbr>Container</a>
+								<a href="servercontainerservice.html#getcontainerbyid" class="tsd-kind-icon">get<wbr>Container<wbr>ById</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="containerservice.html#inject" class="tsd-kind-icon">inject</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
+								<a href="servercontainerservice.html#initcontainer" class="tsd-kind-icon">init<wbr>Container</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+								<a href="servercontainerservice.html#inject" class="tsd-kind-icon">inject</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="servercontainerservice.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#register" class="tsd-kind-icon">register</a>
+								<a href="servercontainerservice.html#setcontainerforid" class="tsd-kind-icon">set<wbr>Container<wbr>For<wbr>Id</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="containerservice.html#unregister" class="tsd-kind-icon">unregister</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="servercontainerservice.html#unregister" class="tsd-kind-icon">unregister</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="genericexception.html" class="tsd-kind-icon">Generic<wbr>Exception</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="policyitem.html" class="tsd-kind-icon">Policy<wbr>Item</a>
-					</li>
-					<li class=" tsd-kind-class tsd-has-type-parameter">
-						<a href="policyschemavalidator.html" class="tsd-kind-icon">Policy<wbr>Schema<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="stringutils.html" class="tsd-kind-icon">String<wbr>Utils</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sugoierror.html" class="tsd-kind-icon">Sugoi<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="sugoipolicyerror.html" class="tsd-kind-icon">Sugoi<wbr>Policy<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="validateschemautil.html" class="tsd-kind-icon">Validate<wbr>Schema<wbr>Util</a>
+						<a href="sugoiservererror.html" class="tsd-kind-icon">Sugoi<wbr>Server<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/icomparablevalue.html" class="tsd-kind-icon">IComparable<wbr>Value</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/iexceptionconstant.html" class="tsd-kind-icon">IException<wbr>Constant</a>
+						<a href="../interfaces/imodulemetadata.html" class="tsd-kind-icon">IModule<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="../interfaces/ipolicyschemavalidator.html" class="tsd-kind-icon">IPolicy<wbr>Schema<wbr>Validator</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/ivalidationresult.html" class="tsd-kind-icon">IValidation<wbr>Result</a>
+						<a href="../interfaces/moduleitem.html" class="tsd-kind-icon">Module<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#comparablevaluetype" class="tsd-kind-icon">Comparable<wbr>Value<wbr>Type</a>
+						<a href="../globals.html#iexpresscallback" class="tsd-kind-icon">IExpress<wbr>Callback</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="../globals.html#tnewable" class="tsd-kind-icon">TNewable</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#tcomparableschema" class="tsd-kind-icon">TComparable<wbr>Schema</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#tpolicy" class="tsd-kind-icon">TPolicy</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#tpolicyresults" class="tsd-kind-icon">TPolicy<wbr>Results</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#tvalidateschemadata" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#tvalidateschemameta" class="tsd-kind-icon">TValidate<wbr>Schema<wbr>Meta</a>
+						<a href="../globals.html#tstringornumber" class="tsd-kind-icon">TString<wbr>OrNumber</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#policy_key" class="tsd-kind-icon">POLICY_<wbr>KEY</a>
+						<a href="../globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="../globals.html#policy_meta_key" class="tsd-kind-icon">POLICY_<wbr>META_<wbr>KEY</a>
+						<a href="../globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#authorized" class="tsd-kind-icon">Authorized</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#requestschemapolicy" class="tsd-kind-icon">Request<wbr>Schema<wbr>Policy</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="../globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
