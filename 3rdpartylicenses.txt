@@ -314,10 +314,6 @@ MIT
 MIT
 MIT
 
-@ng-toolkit/universal@1.1.41-beta.110
-MIT
-MIT
-
 @angular/platform-browser@6.0.7
 MIT
 MIT

@@ -101,9 +101,8 @@ MongoModel.setConnection({
     }
 }
 </code></pre><p>By default the collection name is the class name (case sensitive).</p>
-				<p>For override the collection name, use the @ModelName decorator:</p>
-				<pre><code><span class="hljs-meta">@ModelName</span>(<span class="hljs-string">"AppMessage"</span>)
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
+				<p>For override the collection name, set the collectionName property:</p>
+				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
         public userId:string;
         public body:string;
 
@@ -111,14 +110,13 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-keyword">super</span>();
         <span class="hljs-keyword">this</span>.userId = userId;
         <span class="hljs-keyword">this</span>.body = body;
+        <span class="hljs-keyword">this</span>.collectionName = <span class="hljs-string">"my-app-message"</span>;
     }
 }
 </code></pre><h5 id="using-connections">Using connections</h5>
-				<p>For using different connection for model you able to either use all you need to use
-				<code>setConnectionName</code> static method or <code>ConnectionName</code> decorator.</p>
-				<pre><code><span class="hljs-meta">@ModelName</span>(<span class="hljs-string">"AppMessage"</span>)
-<span class="hljs-meta">@ConnectionName</span>(<span class="hljs-string">"appDB"</span>)
-export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
+				<p>For using different connection for each model all you need to do
+				is override the connnectionName with your connection name</p>
+				<pre><code>export <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">MongoModel</span> </span>{
             public userId:string;
             public body:string;
 
@@ -126,30 +124,21 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
         <span class="hljs-keyword">super</span>();
         <span class="hljs-keyword">this</span>.userId = userId;
         <span class="hljs-keyword">this</span>.body = body;
-        <span class="hljs-keyword">this</span>.constructor.setConnectionName(<span class="hljs-string">"adminDB"</span>);
+        <span class="hljs-keyword">this</span>.collectionName = <span class="hljs-string">"my-app-message"</span>;
+        <span class="hljs-keyword">this</span>.connectionName = <span class="hljs-string">"adminDB"</span>;
     }
 }
 </code></pre><h3 id="model-methods">Model methods</h3>
-				<p>Some of the model main methods:</p>
-				<h4 id="query">Query</h4>
-				<blockquote>
-					<p>static find&lt;T=any&gt;(query?: any): Promise&lt;Array<T>&gt;;</p>
-				</blockquote>
-				<blockquote>
-					<p>static findOne&lt;T=any&gt;(query?: any): Promise<T>;</p>
-				</blockquote>
-				<h4 id="upsert">Upsert</h4>
-				<blockquote>
-					<p>save&lt;T=any&gt;(options: CollectionInsertOneOptions): Promise<T>;</p>
-				</blockquote>
-				<blockquote>
-					<p>update&lt;T=any&gt;(options?: ReplaceOneOptions): Promise<T>;</p>
-				</blockquote>
-				<h4 id="remove">Remove</h4>
-				<blockquote>
-					<p>remove&lt;T=any&gt;(): Promise<T>;</p>
-				</blockquote>
-				<p>Find information about the model interface on <a href="http://www.sugoijs.com/documentation/orm/index">@sugoi\orm documentation</a></p>
+				<p>The model has some main methods:</p>
+				<h5 id="query">Query</h5>
+				<pre><code>static find<span class="hljs-variable">&lt;T&gt;</span>(query?: <span class="hljs-literal">any</span>): Observable<span class="hljs-variable">&lt;Array&lt;T&gt;</span>&gt;;
+static findOne<span class="hljs-variable">&lt;T&gt;</span>(query?: <span class="hljs-literal">any</span>): Observable<span class="hljs-variable">&lt;T&gt;</span>;
+</code></pre><h5 id="upsert">Upsert</h5>
+				<pre><code>save<span class="hljs-tag">&lt;<span class="hljs-name">T</span>&gt;</span>(options: CollectionInsertOneOptions): Observable<span class="hljs-tag">&lt;<span class="hljs-name">T</span>&gt;</span>;
+update(options?: ReplaceOneOptions): Observable<span class="hljs-tag">&lt;<span class="hljs-name">any</span>&gt;</span>;
+</code></pre><h5 id="remove">Remove</h5>
+				<pre><code><span class="hljs-comment">remove&lt;T&gt;(): Observable&lt;T&gt;;</span>
+</code></pre><p>Find information about the model interface on <a href="http://www.sugoijs.com/documentation/orm/index">@sugoi\orm documentation</a></p>
 				<h3 id="model-lifecycle">Model lifecycle</h3>
 				<p>@sugoi\mongodb module re-export orm lifecycle interfaces.</p>
 				<p>Find information about the model lifecycle on <a href="http://www.sugoijs.com/documentation/orm/index">@sugoi\orm documentation</a></p>
@@ -178,9 +167,6 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#exceptions" class="tsd-kind-icon">EXCEPTIONS</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#sortoptionsmongo" class="tsd-kind-icon">Sort<wbr>Options<wbr>Mongo</a>
 					</li>
 				</ul>
 			</nav>
