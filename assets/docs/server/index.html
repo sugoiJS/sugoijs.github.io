@@ -69,12 +69,83 @@
 				<p>SugoiJS gives you the ability to use only what you need and do it fast.</p>
 				<p>this is a standalone module that can be functional on its own (as all of the SugoiJS modules).</p>
 				<p>This module provides singleton services, request handling decorators and request policies decorators.</p>
-				<p>SugoiJS server use <a href="https://www.npmjs.com/package/inversify">inversify</a>, <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
+				<p>SugoiJS server uses <a href="https://www.npmjs.com/package/inversify">inversify</a>, <a href="https://www.npmjs.com/package/inversify-express-utils">inversify-express-utils</a> and re-export those modules</p>
 				<h2 id="installation">Installation</h2>
 				<blockquote>
 					<p>npm install --save @sugoi/server</p>
 				</blockquote>
-				<h3 id="set-controller">Set controller</h3>
+				<h3 id="tsconfig-json-">tsconfig.json:</h3>
+				<p>Under your tsconfig - compilerOptions set:</p>
+				<ul>
+					<li><p><code>&quot;target&quot;: &quot;es5&quot;</code></p>
+					</li>
+					<li><p><code>&quot;emitDecoratorMetadata&quot;: true</code></p>
+					</li>
+					<li><p><code>&quot;experimentalDecorators&quot;: true</code></p>
+					</li>
+					<li><p><code>&quot;lib&quot;: [&quot;es2015&quot;,&quot;dom&quot;]</code></p>
+					</li>
+				</ul>
+				<h4 id="template">Template</h4>
+				<p>You are able to use the config template which was set for the @sugoi/demo application:</p>
+				<pre><code>{
+  <span class="hljs-attr">"compilerOptions"</span>: {
+    <span class="hljs-attr">"baseUrl"</span>: <span class="hljs-string">"./src"</span>,
+    <span class="hljs-attr">"allowJs"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"target"</span>: <span class="hljs-string">"es5"</span>,
+    <span class="hljs-attr">"module"</span>: <span class="hljs-string">"commonjs"</span>,
+    <span class="hljs-attr">"moduleResolution"</span>: <span class="hljs-string">"node"</span>,
+    <span class="hljs-attr">"sourceMap"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"emitDecoratorMetadata"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"experimentalDecorators"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"lib"</span>: [
+      <span class="hljs-string">"es2015"</span>,
+      <span class="hljs-string">"dom"</span>
+    ],
+    <span class="hljs-attr">"typeRoots"</span>: [
+      <span class="hljs-string">"./node_modules/@types"</span>
+    ],
+    <span class="hljs-attr">"types"</span>: [
+      <span class="hljs-string">"body-parser"</span>,
+      <span class="hljs-string">"express"</span>,
+      <span class="hljs-string">"node"</span>
+    ]
+  }
+}
+</code></pre><h3 id="bootstrapping">Bootstrapping</h3>
+				<p>To boostrap you server use the &#39;init&#39; method:</p>
+				<pre><code>init(<span class="hljs-string">boostrapModule:</span> any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider)
+</code></pre><p>when boostrapModule is the entry point module</p>
+				<blockquote>
+					<p>rootPath - Server uri prefix</p>
+				</blockquote>
+				<pre><code><span class="hljs-keyword">import</span> {HttpServer} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>;
+
+<span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
+</code></pre><h3 id="build-listen">Build &amp; listen</h3>
+				<p>After setting the middlewares and error handlers, build and listen to requests by:</p>
+				<pre><code>(&lt;HttpServer&gt;server).build()
+    .listen(PORT, <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">error</span>: Error)</span> =&gt;</span> {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">error</span>) {
+            logger.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
+            throw <span class="hljs-built_in">error</span>;
+        }
+        logger.<span class="hljs-built_in">debug</span>(`Server running @ ${HOST}:${PORT}`);
+    });
+</code></pre><p>This call will return http.Server instance which can be use for setting app variables, socket server and more.</p>
+				<h3 id="set-module">Set module</h3>
+				<p>Creating a module requires you to should use the @ServerModule decorator</p>
+				<pre><code><span class="hljs-keyword">import</span> {ServerModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
+
+<span class="hljs-meta">@ServerModule</span>({
+    controllers:[CoreController],
+    services: [CoreService],
+    modules:[LoginModule,DashboardModule]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerModule{
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
+}
+</code></pre><h3 id="set-controller">Set controller</h3>
 				<p>SugoiJS use inversify-express-utils decorators and re-export them (also with alias to capitalize camel-case decorator names)</p>
 				<pre><code><span class="hljs-keyword">import</span> {Controller,Response,HttpGet,RequestParam} from <span class="hljs-string">"@sugoi/server"</span>;
 
@@ -93,30 +164,44 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
 }
 </code></pre><p>Further information can be found on <a href="https://github.com/inversify/inversify-express-utils">Inversify-express-utils documentation</a></p>
 				<h3 id="set-service">Set service</h3>
-				<p> Any class can be used as a service without special decorators.</p>
-				<h3 id="set-module">Set module</h3>
-				<p>  for setting module you should use the @ServerModule decorator</p>
-				<pre><code><span class="hljs-keyword">import</span> {ServerModule} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>
+				<p>For setting class as service the class must be decorated with <code>@Injectable</code> decorator, this will set the class as singleton.</p>
+				<pre><code><span class="hljs-meta">@Injectable()</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyService</span></span>{
+    <span class="hljs-keyword">public</span> listeners:number = <span class="hljs-number">0</span>;
 
-<span class="hljs-meta">@ServerModule</span>({
-    controllers:[CoreController],
-    services: [CoreService],
-    modules:[LoginModule,DashboardModule]
-})
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ServerModule{
-    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
+    <span class="hljs-keyword">public</span> incListeners(){
+        <span class="hljs-keyword">this</span>.listeners++;
+    }
+
+    <span class="hljs-keyword">public</span> decListeners(){
+        <span class="hljs-keyword">this</span>.listeners--;
+    }
 }
-</code></pre><h3 id="bootstrapping">Bootstrapping</h3>
-				<p>For bootstrapping use the &#39;init&#39; method:</p>
-				<pre><code>init(<span class="hljs-string">boostrapModule:</span> any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider, container?: inversify.Container)
-</code></pre><p>when boostrapModule is the entry point module</p>
-				<blockquote>
-					<p>rootPath - Server uri prefix</p>
-				</blockquote>
-				<pre><code><span class="hljs-keyword">import</span> {HttpServer} <span class="hljs-keyword">from</span> <span class="hljs-string">"@sugoi/server"</span>;
-
-<span class="hljs-keyword">const</span> server:HttpServer = HttpServer.init(ServerModule,<span class="hljs-string">"/api"</span>);
-</code></pre><h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
+</code></pre><p>later we will be able to inject the service instance by:</p>
+				<h4 id="variable-binding">Variable binding</h4>
+				<ul>
+					<li><p><code>@Inject(MyService) private myService:MyService</code></p>
+					</li>
+					<li><p><code>@Inject(&quot;MyService&quot;) private myService:MyService</code></p>
+					</li>
+					<li><p><code>constructor(private myService:MyService)</code></p>
+						<h4 id="return-the-value-from-the-container">Return the value from the &quot;container&quot;</h4>
+						<p>The <a href="https://github.com/inversify/InversifyJS/blob/master/wiki/container_api.md">InversifyJS container</a> is handling the singleton objects.</p>
+						<p>The container is stored on the server instance, each request and the <code>ServerContainerService</code> by the instanceId</p>
+					</li>
+					<li><p><code>server.container</code></p>
+					</li>
+					<li><p><code>req.container</code></p>
+					</li>
+					<li><p><code>ServerContainerService.getContainerById(serverInstanceId)</code></p>
+						<p>After retriving the container we will able to get the service instance:</p>
+					</li>
+					<li><p><code>private myService:MyService = container.get(MyService)</code></p>
+					</li>
+					<li><p><code>private myService:MyService = container.get(&quot;MyService&quot;)</code></p>
+					</li>
+				</ul>
+				<h3 id="setting-middlewares-and-error-handlers">Setting middlewares and Error handlers</h3>
 				<p>For setting static file serving use:</p>
 				<pre><code>setStatic(<span class="hljs-name">pathToStatic</span><span class="hljs-symbol">:string</span>,route?<span class="hljs-symbol">:string</span>)
 </code></pre><p>For setting middlewares use:</p>
@@ -151,19 +236,8 @@ export <span class="hljs-class"><span class="hljs-keyword">class</span> <span cl
             }
         });
     });
-</code></pre><h3 id="build-listen">Build &amp; listen</h3>
-				<p>After setting the middlewares and error handlers, build and listen to requests by:</p>
-				<pre><code>(&lt;HttpServer&gt;server).build(PORT)
-    .listen(PORT, <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">error</span>: Error)</span> =&gt;</span> {
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">error</span>) {
-            logger.<span class="hljs-built_in">error</span>(<span class="hljs-built_in">error</span>.message);
-            throw <span class="hljs-built_in">error</span>;
-        }
-        logger.<span class="hljs-built_in">debug</span>(`Server running @ ${HOST}:${PORT}`);
-    });
-</code></pre><p>This call will return http.Server instance which can be use for setting app variables, socket server and more.</p>
-				<h2 id="policies">Policies</h2>
-				<p>@sugoi/server use @sugoi/core policies and supply predefined policies.</p>
+</code></pre><h2 id="policies">Policies</h2>
+				<p>@sugoi/server uses @sugoi/core policies and supply predefined policies.</p>
 				<p>And re-export SchemaTypes, TPolicy, TComparableSchema, Policy, UsePolicy, ComparableSchema from &quot;@sugoi/core&quot;;</p>
 				<p>Further information on the <a href="https://sugoijs.com/#/documentation/core/index">@sugoi/core package documentation</a></p>
 				<h3 id="requestschemapolicy">RequestSchemaPolicy</h3>
@@ -188,7 +262,78 @@ export class DashboardController {
                           {<span class="hljs-string">"role"</span>: ComparableSchema.ofType({<span class="hljs-attribute">text</span>: ComparableSchema.ofType(SchemaTypes.STRING).setRegex(<span class="hljs-string">"([A-Z])+"</span>,<span class="hljs-string">"i"</span>)})})
                           <span class="hljs-comment">//body schema is {role:{text:string//with regex /([A-Z])+/i}}</span>
     getUser(<span class="hljs-variable">@RequestParam</span>(<span class="hljs-string">"id"</span>) <span class="hljs-attribute">id</span>:number, <span class="hljs-variable">@RequestBody</span>(<span class="hljs-string">"role"</span>) <span class="hljs-attribute">role</span>:{<span class="hljs-attribute">text</span>:string}) {
-        <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">User</span><span class="hljs-selector-class">.findOne</span>({<span class="hljs-selector-tag">id</span>,<span class="hljs-selector-tag">role</span><span class="hljs-selector-class">.text</span>})
+        <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">User</span><span class="hljs-selector-class">.findOne</span>({<span class="hljs-selector-tag">id</span>,<span class="hljs-selector-tag">role</span><span class="hljs-selector-pseudo">:role.text</span>})
+    }
+
+}
+</code></pre><h3 id="authorized">Authorized</h3>
+				<pre><code><span class="hljs-string">/**</span>
+ <span class="hljs-string">*</span>  <span class="hljs-attr">requiredRole:</span> <span class="hljs-string">TStringOrNumber|TStringOrNumber[]</span> <span class="hljs-bullet">-</span> <span class="hljs-string">The</span> <span class="hljs-string">required</span> <span class="hljs-string">role(s)</span>
+ <span class="hljs-string">*</span>  <span class="hljs-attr">permissions:</span> <span class="hljs-string">TStringOrNumber|TStringOrNumber[]</span>  <span class="hljs-bullet">-</span> <span class="hljs-string">The</span> <span class="hljs-string">required</span> <span class="hljs-string">premission(s)</span>
+ <span class="hljs-string">*</span>  <span class="hljs-attr">failedCode:</span> <span class="hljs-string">number</span>                              <span class="hljs-bullet">-</span> <span class="hljs-string">The</span> <span class="hljs-string">response</span> <span class="hljs-string">code</span> <span class="hljs-string">in</span> <span class="hljs-string">case</span> <span class="hljs-string">the</span> <span class="hljs-string">policy</span> <span class="hljs-string">will</span> <span class="hljs-string">fail</span>
+ <span class="hljs-string">**/</span>
+<span class="hljs-string">Authorized(requiredRole:</span> <span class="hljs-string">TStringOrNumber|TStringOrNumber[]</span> <span class="hljs-string">=</span> <span class="hljs-literal">null</span><span class="hljs-string">,</span> <span class="hljs-attr">permissions:</span> <span class="hljs-string">TStringOrNumber|TStringOrNumber[]</span> <span class="hljs-string">=</span> <span class="hljs-literal">null</span><span class="hljs-string">,</span> <span class="hljs-attr">failedCode:</span> <span class="hljs-string">number</span> <span class="hljs-string">=</span> <span class="hljs-number">401</span><span class="hljs-string">)</span>
+</code></pre><p>The <code>Authorized</code> decorator use for validate the user is Authorized and in the right role and permissions(optional).</p>
+				<p>In case null will pass the value won&#39;t check.</p>
+				<p>The Authorized policy will use the AuthProvider which pass while the server init:
+				<code>init(boostrapModule: any, rootPath?: string, moduleMetaKey?: string, authProvider?: AuthProvider)</code></p>
+				<p>The AuthProvider will init for each request, the AuthProvider holding the request headers &amp; cookies.</p>
+				<p>Example:</p>
+				<h5 id="authorization-class-ts-">Authorization.class.ts:</h5>
+				<pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Authorization <span class="hljs-keyword">extends</span> AuthProvider&lt;User&gt; {
+
+
+    <span class="hljs-comment">/**
+     * Verify if user is authorized
+     *
+     * Implemented dummy check for x-sug-demo header to be equal to "Wyn1RRR9PQJPaqYM"
+     *
+     * @returns {Promise&lt;boolean&gt;}
+     */</span>
+    isAuthenticated(): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-keyword">this</span>.headers[<span class="hljs-string">"x-sug-demo"</span>] === <span class="hljs-string">"Wyn1RRR9PQJPaqYM"</span>);
+    }
+
+    getUser(req?: e.Request, res?: e.Response, next?: e.NextFunction): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.details 
+            ?   <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-keyword">this</span>.details)
+            : UserService.getUser(UserService.getIdFromCookie(<span class="hljs-keyword">this</span>.cookie))
+                          .then(<span class="hljs-function">(<span class="hljs-params">user:User</span>)=&gt;</span>{
+                            <span class="hljs-keyword">this</span>.details = user;
+                            <span class="hljs-keyword">return</span> user;
+                          })
+    }
+
+    isInRole(...roles: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt;): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span>=&gt;</span>roles.includes(user.role));
+
+    }
+
+    <span class="hljs-comment">/**
+    * Check if on of user has some of the permissions.
+    **/</span>
+    isAllowedTo(...permissions: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">string</span> | <span class="hljs-built_in">number</span>&gt;): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span>=&gt;</span>permissions.some(<span class="hljs-function"><span class="hljs-params">permission</span>=&gt;</span>user.permissions.includes(permission)));
+    }
+
+    isResourceOwner(resourceId: <span class="hljs-built_in">any</span>): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">boolean</span>&gt; {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span>=&gt;</span>Resources.checkIfOwner(resourceId,user.id));
+    }
+
+}
+</code></pre><h5 id="app-ts-">app.ts:</h5>
+				<pre><code>`init(boostrapModule,<span class="hljs-string">"/"</span>,null, Authorization)`
+</code></pre><h5 id="dashboard-controller-ts-">dashboard.controller.ts:</h5>
+				<pre><code><span class="hljs-variable">@Controller</span>(<span class="hljs-string">'/dashboard'</span>)
+export class DashboardController {
+    <span class="hljs-selector-tag">constructor</span>() {
+    }
+
+    <span class="hljs-variable">@HttpPost</span>(<span class="hljs-string">"/:id"</span>)
+    <span class="hljs-variable">@Authorized</span>([<span class="hljs-string">"User"</span>,<span class="hljs-string">"Admin"</span>],<span class="hljs-string">"User.READ"</span>)
+    <span class="hljs-variable">@Authorized</span>(null,<span class="hljs-string">"User.READ_BY_ID"</span>) <span class="hljs-comment">// This case promise the user have both "User.READ" AND "User.READ_BY_ID" permissions</span>
+    getUser(<span class="hljs-variable">@RequestParam</span>(<span class="hljs-string">"id"</span>) <span class="hljs-attribute">id</span>:number, <span class="hljs-variable">@RequestBody</span>(<span class="hljs-string">"role"</span>) <span class="hljs-attribute">role</span>:{<span class="hljs-attribute">text</span>:string}) {
+        <span class="hljs-selector-tag">return</span> <span class="hljs-selector-tag">User</span><span class="hljs-selector-class">.findOne</span>({<span class="hljs-selector-tag">id</span>,<span class="hljs-selector-tag">role</span><span class="hljs-selector-pseudo">:role.text</span>})
     }
 
 }
@@ -219,7 +364,13 @@ export class DashboardController {
 						<a href="classes/parametersvalidatorutil.html" class="tsd-kind-icon">Parameters<wbr>Validator<wbr>Util</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/requestcontainerservice.html" class="tsd-kind-icon">Request<wbr>Container<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/responsemessage.html" class="tsd-kind-icon">Response<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/servercontainerservice.html" class="tsd-kind-icon">Server<wbr>Container<wbr>Service</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/sugoiservererror.html" class="tsd-kind-icon">Sugoi<wbr>Server<wbr>Error</a>
@@ -236,11 +387,17 @@ export class DashboardController {
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="globals.html#tnewable" class="tsd-kind-icon">TNewable</a>
 					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tstringornumber" class="tsd-kind-icon">TString<wbr>OrNumber</a>
+					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#modulemetakey" class="tsd-kind-icon">Module<wbr>Meta<wbr>Key</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#sugoi_icon" class="tsd-kind-icon">SUGOI_<wbr>ICON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#authorized" class="tsd-kind-icon">Authorized</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#requestschemapolicy" class="tsd-kind-icon">Request<wbr>Schema<wbr>Policy</a>
