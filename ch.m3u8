@@ -1,0 +1,27 @@
+#EXTM3U
+#EXTINF:0 tvg-country="DZ;BH;IL;KW;MA" tvg-logo="https://i.imgur.com/M8ZuzeB.png" group-title="Religious",Alhayat TV (720p) [Not 24/7]
+https://cdn3.wowza.com/5/OE5HREpIcEkySlNT/alhayat-live/ngrp:livestream_all/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="" group-title="Undefined",Discovery Channel [Geo]
+http://s1-p3.peer5.net/edge/44-1.stream/chunklist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="" group-title="Undefined",Disney Channel [Geo]
+http://s1-p3.peer5.net/edge/41-1.stream/chunklist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/OzjftEl.png" group-title="Undefined",Hala TV (1080p) [Not 24/7]
+https://live1.panet.co.il/edge_abr/halaTV/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/OzjftEl.png" group-title="Undefined",Hala TV (1080p) [Not 24/7]
+https://live2.panet.co.il/edge_abr/halaTV/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/8R1UWRw.jpg" group-title="Undefined",Kabbalah for the People (Israel)
+http://edge1.il.kab.tv/rtplive/tv66-heb-high.stream/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/8R1UWRw.jpg" group-title="Undefined",Kabbalah for the People (Israel)
+https://edge2.uk.kab.tv/rtplive/tv66-heb-medium.stream/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/8R1UWRw.jpg" group-title="Undefined",Kabbalah for the People (Israel)
+https://edge1.il.kab.tv/rtplive/tv66-heb-high.stream/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.imgur.com/8R1UWRw.jpg" group-title="Undefined",Kabbalah for the People (Israel) (504p)
+https://edge3.uk.kab.tv/live/tv66-heb-high/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="" group-title="Undefined",National Geographic [Geo]
+http://s1-p3.peer5.net/edge/13-1.stream/chunklist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="http://thumbs2.imagebam.com/bc/ad/be/19f5c9784877383.jpg" group-title="Undefined",Reshet 13 (720p)
+https://d18b0e6mopany4.cloudfront.net/out/v1/08bc71cf0a0f4712b6b03c732b0e6d25/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="AF;AL;DZ;AM;AU;BH;BB;BR;BG;KH;CA;CL;CO;DK;FI;HU;IR;IL;MN;PH;ES;TH" tvg-logo="https://i.imgur.com/tnXba28.png" group-title="News;SPAIN",WION (1080p)
+https://dai.google.com/linear/hls/event/x_dFvsORSZWERbxrltEk0g/master.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IL" tvg-logo="https://i.ibb.co/sCN7q6G/download.png" group-title="Undefined",YES Junior
+http://red.ipfox.org:8080/Karam2022/Karam2023/46022?checkedby:iptvcat.net
